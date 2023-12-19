@@ -192,9 +192,9 @@
 		2F4E7F602B321404007A0D7A /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				2F09B4532A84A0D3009524D2 /* ControlRowButtonViewModifier.swift */,
 				2FD24C6F2A81BD68009FF6F4 /* HapticOnTapViewModifier.swift */,
 				2FD24C712A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift */,
-				2F09B4532A84A0D3009524D2 /* ControlRowButtonViewModifier.swift */,
 				2F3E34EE2A84FDFD00DF2C15 /* TextFieldViewModifier.swift */,
 			);
 			path = ViewModifiers;

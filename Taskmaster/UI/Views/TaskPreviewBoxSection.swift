@@ -2,21 +2,20 @@ import SwiftUI
 
 struct TaskPreviewBoxSection: View {
 
-    let isTextPrepared: Bool
-    let text: String
+    private let isTextPrepared: Bool
+    private let text: String
     
-    var body: some View {
+    init(isTextPrepared: Bool, text: String) {
+        self.isTextPrepared = isTextPrepared
+        self.text = text
+    }
+    
+    public var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 25)
-                .fill(.ultraThinMaterial)
-            VStack {
-                headerRow
-                    .padding(.top)
-                    .padding(.horizontal)
-                textRow
-                    .padding(.bottom)
-                    .padding(.horizontal)
-            }
+            layerBackground
+            layerForeground
+                .padding(.horizontal)
+                .padding(.horizontal, 2)
         }
         .frame(maxHeight: 125)
     }
@@ -24,7 +23,21 @@ struct TaskPreviewBoxSection: View {
 
 extension TaskPreviewBoxSection {
     
-    private var headerRow: some View {
+    private var layerBackground: some View {
+        RoundedRectangle(cornerRadius: 25)
+            .fill(.ultraThinMaterial)
+    }
+    
+    private var layerForeground: some View {
+        VStack {
+            rowHeader
+                .padding(.top)
+            rowText
+                .padding(.bottom)
+        }
+    }
+    
+    private var rowHeader: some View {
         let title = Text("Task Preview:")
         let symbolColor: Color = isTextPrepared ? .green : .red
         let symbolName = isTextPrepared ? "checkmark" : "xmark"
@@ -45,16 +58,19 @@ extension TaskPreviewBoxSection {
         return HStack {
             title
                 .font(.title2)
+//                .bold()
             indicator
                 .foregroundStyle(symbolColor)
             Spacer()
+            Text("Length: \(text.trim().count)")
+                .font(.caption)
+                .lineLimit(100)
         }
     }
     
-    private var textRow: some View {
+    private var rowText: some View {
         HStack {
-            Text(text)
-                .padding(.horizontal, 2)
+            Text("\"\(text)\"")
             Spacer()
         }
     }
