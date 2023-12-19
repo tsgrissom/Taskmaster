@@ -31,7 +31,7 @@ struct ListView: View {
     }
     
     private var leadingNavButton: some View {
-        NavigationLink(destination: SettingsView()) {
+        NavigationLink(destination: SettingsPage()) {
             Image(systemName: "gear")
         }
         .modifier(ImpactOnTapViewModifier(playOut: shouldUseHaptics, .light))

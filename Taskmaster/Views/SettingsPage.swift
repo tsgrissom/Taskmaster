@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 /// Presents the user-facing settings for Taskmaster. Various types of settings are organized across sections to be customized to the user's liking.
-struct SettingsView: View {
+struct SettingsPage: View {
     
     // MARK: Environment Variables
     @Environment(\.modelContext)
@@ -45,7 +45,7 @@ struct SettingsView: View {
 }
 
 // MARK: Layout Components
-extension SettingsView {
+extension SettingsPage {
     
     /**
      Presents a section allowing for customizing the app's appearance.
@@ -169,7 +169,7 @@ extension SettingsView {
 // MARK: Preview
 #Preview {
     NavigationStack {
-        SettingsView()
+        SettingsPage()
             .environmentObject(SettingsStore())
     }
 }
