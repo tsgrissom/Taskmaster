@@ -156,6 +156,50 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2F4E7F5D2B3213EC007A0D7A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2F4E7F602B321404007A0D7A /* ViewModifiers */,
+				2F4E7F5F2B321400007A0D7A /* Views */,
+				2F4E7F5E2B3213F9007A0D7A /* Pages */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2F4E7F5E2B3213F9007A0D7A /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				2F9AD7C9296E21080092FFFB /* AddTaskPage.swift */,
+				2F1EC9F92A7EADB3006B5FC0 /* DisplayTaskItemPage.swift */,
+				2F9AD7C5296E1D650092FFFB /* DisplayTaskListPage.swift */,
+				2F89C3C92972A8C20053DB22 /* EditTaskPage.swift */,
+				2F89C3CB2973362B0053DB22 /* SettingsPage.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		2F4E7F5F2B321400007A0D7A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2FF5C0732A805AFA0059F348 /* TaskCompletionIndicator.swift */,
+				2FD1CC622A81323200B29F6D /* QuickAddTaskButton.swift */,
+				2FD24C6C2A8189EE009FF6F4 /* OnboardingSection.swift */,
+				2F7A3AEA2A86C8AA00B02C11 /* TaskPreviewBoxSection.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2F4E7F602B321404007A0D7A /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				2FD24C6F2A81BD68009FF6F4 /* HapticOnTapViewModifier.swift */,
+				2FD24C712A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift */,
+				2F09B4532A84A0D3009524D2 /* ControlRowButtonViewModifier.swift */,
+				2F3E34EE2A84FDFD00DF2C15 /* TextFieldViewModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 		2F839E0B2B3122B100C1FCD9 /* TMwatchOS Watch App */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,10 +247,9 @@
 				2FF5C0752A806B7C0059F348 /* Enums */,
 				2F9C135929AF991A0070413E /* Extensions */,
 				2F9AD7CB296E236A0092FFFB /* Models */,
+				2F4E7F5D2B3213EC007A0D7A /* UI */,
 				2F1EC9FB2A7EADE6006B5FC0 /* Utilities */,
-				2F9AD7C4296E1D540092FFFB /* Views */,
 				2F9AD7CE296E274C0092FFFB /* ViewModels */,
-				2FD24C6E2A81BD49009FF6F4 /* ViewModifiers */,
 				2F67EC8729ADBF4D00F6E43E /* SettingsStore.swift */,
 				2F9AD7B2296E1C510092FFFB /* TaskmasterApp.swift */,
 				2F9573DA2A74E55B009371EB /* README.md */,
@@ -223,19 +266,6 @@
 				2F9AD7B9296E1C540092FFFB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		2F9AD7C4296E1D540092FFFB /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				2FF5C0722A805AEA0059F348 /* SubView */,
-				2F9AD7C9296E21080092FFFB /* AddTaskPage.swift */,
-				2F1EC9F92A7EADB3006B5FC0 /* DisplayTaskItemPage.swift */,
-				2F9AD7C5296E1D650092FFFB /* DisplayTaskListPage.swift */,
-				2F89C3C92972A8C20053DB22 /* EditTaskPage.swift */,
-				2F89C3CB2973362B0053DB22 /* SettingsPage.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		2F9AD7CB296E236A0092FFFB /* Models */ = {
@@ -261,28 +291,6 @@
 				2F6BD24D2A880BFF0075ACFF /* String.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		2FD24C6E2A81BD49009FF6F4 /* ViewModifiers */ = {
-			isa = PBXGroup;
-			children = (
-				2FD24C6F2A81BD68009FF6F4 /* HapticOnTapViewModifier.swift */,
-				2FD24C712A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift */,
-				2F09B4532A84A0D3009524D2 /* ControlRowButtonViewModifier.swift */,
-				2F3E34EE2A84FDFD00DF2C15 /* TextFieldViewModifier.swift */,
-			);
-			path = ViewModifiers;
-			sourceTree = "<group>";
-		};
-		2FF5C0722A805AEA0059F348 /* SubView */ = {
-			isa = PBXGroup;
-			children = (
-				2FF5C0732A805AFA0059F348 /* TaskCompletionIndicator.swift */,
-				2FD1CC622A81323200B29F6D /* QuickAddTaskButton.swift */,
-				2FD24C6C2A8189EE009FF6F4 /* OnboardingSection.swift */,
-				2F7A3AEA2A86C8AA00B02C11 /* TaskPreviewBoxSection.swift */,
-			);
-			path = SubView;
 			sourceTree = "<group>";
 		};
 		2FF5C0752A806B7C0059F348 /* Enums */ = {
