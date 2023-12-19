@@ -11,7 +11,7 @@ private struct CustomButtonStyle: ButtonStyle {
     @Binding var isPressed: Bool
     
     func makeBody(configuration: Configuration) -> some View {
-        NavigationLink(destination: AddView()) {
+        NavigationLink(destination: AddTaskPage()) {
             configuration.label
                 .frame(width: frameSize, height: frameSize)
                 .background(configuration.isPressed ? activeColor : defaultColor)
@@ -28,7 +28,7 @@ private struct CustomButtonStyle: ButtonStyle {
 }
 
 /// Represents a circular button which contains a proportionally sized plus symbol overlayed on top of it.
-struct QuickAddButtonView: View {
+struct QuickAddTaskButton: View {
     
     // MARK: Constants
     let frameSize: CGFloat
@@ -73,27 +73,27 @@ struct QuickAddButtonView: View {
     VStack {
         HStack {
             Text("Size 150")
-            QuickAddButtonView(size: 150)
+            QuickAddTaskButton(size: 150)
         }
         HStack {
             Text("Size 125")
-            QuickAddButtonView(size: 125)
+            QuickAddTaskButton(size: 125)
         }
         HStack {
             Text("Size 100")
-            QuickAddButtonView(size: 100)
+            QuickAddTaskButton(size: 100)
         }
         HStack {
             Text("Size 75")
-            QuickAddButtonView(size: 75)
+            QuickAddTaskButton(size: 75)
         }
         HStack {
             Text("Size 50")
-            QuickAddButtonView(size: 50)
+            QuickAddTaskButton(size: 50)
         }
         HStack {
             Text("Size 25")
-            QuickAddButtonView(size: 25)
+            QuickAddTaskButton(size: 25)
         }
     }
 }

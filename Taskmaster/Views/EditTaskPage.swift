@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct EditView: View {
+struct EditTaskPage: View {
     
     private let task: TaskItem
     private let originalText: String
@@ -280,7 +280,7 @@ struct EditView: View {
 
 // MARK: Layout Declaration
 
-extension EditView {
+extension EditTaskPage {
     
     private var rowTextInput: some View {
         let prompt = Text("Old: \(originalText)")
@@ -419,7 +419,7 @@ extension EditView {
 
 #Preview {
     NavigationStack {
-        EditView(task: MockupUtilities.getMockTask())
+        EditTaskPage(task: MockupUtilities.getMockTask())
     }
     .environmentObject(SettingsStore())
 }

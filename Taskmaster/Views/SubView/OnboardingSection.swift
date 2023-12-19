@@ -4,7 +4,7 @@ import SwiftUI
  * Displayed when there are no tasks in the view model.
  * Slides in from below when visible.
  */
-struct OnboardingView: View {
+struct OnboardingSection: View {
     
     // MARK: Environment Variables
     @EnvironmentObject var settings: SettingsStore
@@ -36,7 +36,7 @@ struct OnboardingView: View {
 }
 
 // MARK: Layout Declarations
-extension OnboardingView {
+extension OnboardingSection {
     
     // MARK: Superviews
     
@@ -64,7 +64,7 @@ extension OnboardingView {
     
     private var beginComposingButton: some View {
         NavigationLink(
-            destination: AddView(),
+            destination: AddTaskPage(),
             label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -84,7 +84,7 @@ extension OnboardingView {
 
 // MARK: Preview
 #Preview {
-    OnboardingView()
+    OnboardingSection()
         .environmentObject(SettingsStore())
         .padding(.top, 500)
 }

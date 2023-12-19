@@ -1,6 +1,7 @@
 import SwiftUI
+import SwiftData
 
-private struct TaskListRowView: View {
+private struct ListRow: View {
     
     private let taskBody: String
     @State
@@ -36,12 +37,12 @@ private struct TaskListRowView: View {
     }
 }
 
-struct TaskListPage: View {
+struct DisplayTaskListPage: View {
     
     public var body: some View {
         List {
             ForEach(1...50, id: \.self) { _ in
-                TaskListRowView()
+                ListRow()
             }
         }
         .navigationTitle("Tasks")
@@ -66,13 +67,13 @@ struct TaskListPage: View {
 
 #Preview("Main View") {
     NavigationStack {
-        TaskListPage()
+        DisplayTaskListPage()
     }
 }
 
 #Preview("TaskListRowView") {
     VStack {
-        TaskListRowView()
-        TaskListRowView(completed: true)
+        ListRow()
+        ListRow(completed: true)
     }
 }

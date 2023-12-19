@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 /// The task list view composed of many ListRowViews
-struct ListView: View {
+struct DisplayTaskListPage: View {
     
     // MARK: Environment Variables
     @Environment(\.modelContext)
@@ -80,7 +80,7 @@ struct ListView: View {
         return VStack {
             if tasks.isEmpty {
                 Spacer()
-                OnboardingView()
+                OnboardingSection()
             } else {
                 listLayer
             }
@@ -136,7 +136,7 @@ struct ListView: View {
      Navigate to the EditView for the respective list item.
      */
     private func contextMenuButtonEdit(_ task: TaskItem) -> some View {
-        NavigationLink(destination: EditView(task: task)) {
+        NavigationLink(destination: EditTaskPage(task: task)) {
             Label("Edit", systemImage: "pencil")
         }
         .modifier(ImpactOnTapViewModifier(playOut: shouldUseHaptics, .medium))
@@ -197,14 +197,14 @@ struct ListView: View {
 
 // MARK: Layout Declarations
 
-extension ListView {
+extension DisplayTaskListPage {
     
     /**
      Presents a row of the List view, one of which corresponds to one task. Offers many context menu
      and swipe actions attached to the particular task reference.
      */
     private func listRow(_ task: TaskItem) -> some View {
-        ListRowView(task)
+        ListRow(task)
             .contextMenu {
                 contextMenuButtonCopy(task)
                 contextMenuButtonDuplicate(task)
@@ -241,15 +241,15 @@ extension ListView {
         
         switch ($settings.quickAddButtonStyle.wrappedValue) {
         case .large:
-            NavigationLink(destination: AddView()) {
-                QuickAddButtonView(size: 110)
+            NavigationLink(destination: AddTaskPage()) {
+                QuickAddTaskButton(size: 110)
             }
             .modifier(hapticModifier)
             .offset(x: 30)
 //          .offset(x: 20, y: 50)
         case .small:
             NavigationLink(
-                destination: AddView()
+                destination: AddTaskPage()
             ) {
                 Image(systemName: "plus")
                     .imageScale(.large)
@@ -257,8 +257,8 @@ extension ListView {
             }
             .modifier(hapticModifier)
         case .material:
-            NavigationLink(destination: AddView()) {
-                QuickAddButtonView(size: 55)
+            NavigationLink(destination: AddTaskPage()) {
+                QuickAddTaskButton(size: 55)
             }
             .modifier(hapticModifier)
 //            .padding(.bottom, 15)
@@ -267,11 +267,110 @@ extension ListView {
     }
 }
 
+/*
+ Subview of ListView which contains the layout for each individual task item, represented as a row of a List
+ */
+private struct ListRow: View {
+    
+    // MARK: Environment Variables
+    @Environment(\.colorScheme)
+    private var systemColorScheme
+    @Environment(\.modelContext)
+    private var context
+    @EnvironmentObject
+    private var settings: SettingsStore
+    
+    @State
+    private var showingSheet = false
+    
+    // MARK: Initialization
+    private let task: TaskItem
+    private let completedColor: Color
+    private let lineLimit: Int
+    private let truncated: Bool
+    private let verticalPadding: CGFloat
+    
+    init(
+        _ task: TaskItem,
+        completedColor: Color = .accentColor,
+        lineLimit: Int = 1,
+        truncated: Bool = true,
+        verticalPadding: CGFloat = 4
+    ) {
+        self.task = task
+        self.completedColor = completedColor
+        self.lineLimit = lineLimit
+        self.truncated = truncated
+        self.verticalPadding = verticalPadding
+    }
+    
+    // MARK: Computed Variables
+    private var textColor: Color {
+        systemColorScheme == .dark ? .white : .black
+    }
+    
+    private var shouldUseHaptics: Bool {
+        $settings.shouldUseHaptics.wrappedValue
+    }
+    
+    private var haptics: HapticGenerator {
+        HapticGenerator(shouldUseHaptics)
+    }
+    
+    // MARK: Layout Declaration
+    public var body: some View {
+        HStack {
+            checkbox
+                .onTapGesture {
+                    task.isComplete.toggle()
+                    try? context.save()
+                    haptics.impact(.medium)
+                }
+            navLink
+                .sheet(isPresented: $showingSheet) {
+                    DisplayTaskItemPage(task: task)
+                }
+            Spacer()
+        }
+        .font(.title2)
+        .padding(.vertical, verticalPadding)
+    }
+    
+    /**
+     Presents a CompletionIndicatorView, a custom checkbox view which supports user settings-derived
+     customization options corresponding to the completion status of the associated task item model.
+     */
+    private var checkbox: some View {
+        TaskCompletionIndicator(
+            isComplete: task.isComplete,
+            symbolColor: .accentColor,
+            fillCompleted: $settings.shouldFillIndicator.wrappedValue,
+            frame: $settings.indicatorFrame.wrappedValue,
+            indicator: $settings.indicatorSymbol.wrappedValue
+        )
+    }
+    
+    /**
+     Presents a navigation-linked list item body which takes the user to the corresponding DisplayItemView.
+     */
+    private var navLink: some View {
+        Button(action: {
+            showingSheet.toggle()
+            haptics.impact(.light)
+        }) {
+            Text(task.body)
+                .fontWeight(.regular)
+                .foregroundStyle(textColor)
+                .lineLimit(3)
+        }
+    }
+}
+
 // MARK: Preview
 
 #Preview {
     NavigationStack {
-        ListView()
+        DisplayTaskListPage()
     }
     .environmentObject(SettingsStore())
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// A view for creating new tasks and adding them to the view model
-struct AddView: View {
+struct AddTaskPage: View {
     
     // MARK: Constants
     private let ALERT_BG_COLOR = Color.red
@@ -278,7 +278,7 @@ struct AddView: View {
 
 // MARK: Layout Declarations
 
-extension AddView {
+extension AddTaskPage {
     
     /**
      Presents a row containing the primary text field of the view.
@@ -400,7 +400,7 @@ extension AddView {
     }
     
     private var sectionTaskPreviewBox: some View {
-        TaskPreviewBoxView(
+        TaskPreviewBoxSection(
             isTextPrepared: isTextPreparedForSubmission,
             text: inputText
         )
@@ -415,7 +415,7 @@ extension AddView {
 
 #Preview {
     NavigationStack {
-        AddView()
+        AddTaskPage()
     }
     .environmentObject(SettingsStore())
 }

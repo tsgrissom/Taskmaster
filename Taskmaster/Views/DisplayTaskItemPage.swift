@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DisplayItemView: View {
+struct DisplayTaskItemPage: View {
     
     // MARK: Environment Variables
     @Environment(\.colorScheme)
@@ -206,7 +206,7 @@ struct DisplayItemView: View {
 
 // MARK: Layout Components
 
-extension DisplayItemView {
+extension DisplayTaskItemPage {
     
     /**
      Presents the title of the task.
@@ -292,7 +292,7 @@ extension DisplayItemView {
         let text: String = task.isComplete ? "Completed" : "Incomplete"
         
         var symbolView: some View {
-            CompletionIndicatorView(
+            TaskCompletionIndicator(
                 isComplete: task.isComplete,
                 symbolColor: foregroundColor,
                 fillCompleted: $settings.shouldFillIndicator.wrappedValue,
@@ -497,6 +497,6 @@ extension DisplayItemView {
 
 // MARK: Preview
 #Preview {
-    DisplayItemView(task: MockupUtilities.getMockTask())
+    DisplayTaskItemPage(task: MockupUtilities.getMockTask())
         .environmentObject(SettingsStore())
 }

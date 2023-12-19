@@ -8,41 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		2F09B4542A84A0D3009524D2 /* ControlRowButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F09B4532A84A0D3009524D2 /* ControlRowButtonViewModifier.swift */; };
-		2F1EC9FA2A7EADB3006B5FC0 /* DisplayItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1EC9F92A7EADB3006B5FC0 /* DisplayItemView.swift */; };
+		2F1EC9FA2A7EADB3006B5FC0 /* DisplayTaskItemPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1EC9F92A7EADB3006B5FC0 /* DisplayTaskItemPage.swift */; };
 		2F1EC9FD2A7EADF4006B5FC0 /* MockupUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1EC9FC2A7EADF4006B5FC0 /* MockupUtilities.swift */; };
 		2F1EC9FF2A7EBE31006B5FC0 /* DeviceUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1EC9FE2A7EBE31006B5FC0 /* DeviceUtilities.swift */; };
 		2F2B82382B312BF70025A56F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2F2B82372B312BF70025A56F /* .gitignore */; };
-		2F2B823B2B3132170025A56F /* TaskListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B823A2B3132170025A56F /* TaskListPage.swift */; };
+		2F2B823B2B3132170025A56F /* DisplayTaskListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B823A2B3132170025A56F /* DisplayTaskListPage.swift */; };
 		2F3E34EF2A84FDFD00DF2C15 /* TextFieldViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3E34EE2A84FDFD00DF2C15 /* TextFieldViewModifier.swift */; };
 		2F67EC8829ADBF4D00F6E43E /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F67EC8729ADBF4D00F6E43E /* SettingsStore.swift */; };
 		2F6BD24A2A87EC9F0075ACFF /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6BD2492A87EC9F0075ACFF /* TaskItem.swift */; };
 		2F6BD24C2A87F4650075ACFF /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6BD24B2A87F4650075ACFF /* TaskViewModel.swift */; };
 		2F6BD24E2A880BFF0075ACFF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6BD24D2A880BFF0075ACFF /* String.swift */; };
 		2F7A3AE92A86AFEA00B02C11 /* HapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7A3AE82A86AFEA00B02C11 /* HapticGenerator.swift */; };
-		2F7A3AEB2A86C8AA00B02C11 /* TaskPreviewBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7A3AEA2A86C8AA00B02C11 /* TaskPreviewBoxView.swift */; };
+		2F7A3AEB2A86C8AA00B02C11 /* TaskPreviewBoxSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7A3AEA2A86C8AA00B02C11 /* TaskPreviewBoxSection.swift */; };
 		2F839E0D2B3122B100C1FCD9 /* TMwatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F839E0C2B3122B100C1FCD9 /* TMwatchOSApp.swift */; };
 		2F839E0F2B3122B100C1FCD9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F839E0E2B3122B100C1FCD9 /* ContentView.swift */; };
 		2F839E112B3122B500C1FCD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F839E102B3122B500C1FCD9 /* Assets.xcassets */; };
 		2F839E142B3122B500C1FCD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F839E132B3122B500C1FCD9 /* Preview Assets.xcassets */; };
 		2F839E172B3122B500C1FCD9 /* TMwatchOS Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2F839E0A2B3122B100C1FCD9 /* TMwatchOS Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2F89C3CA2972A8C20053DB22 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89C3C92972A8C20053DB22 /* EditView.swift */; };
+		2F89C3CA2972A8C20053DB22 /* EditTaskPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89C3C92972A8C20053DB22 /* EditTaskPage.swift */; };
 		2F89C3CC2973362B0053DB22 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89C3CB2973362B0053DB22 /* SettingsPage.swift */; };
 		2F9AD7B3296E1C510092FFFB /* TaskmasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AD7B2296E1C510092FFFB /* TaskmasterApp.swift */; };
 		2F9AD7B7296E1C540092FFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AD7B6296E1C540092FFFB /* Assets.xcassets */; };
 		2F9AD7BA296E1C540092FFFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AD7B9296E1C540092FFFB /* Preview Assets.xcassets */; };
-		2F9AD7C6296E1D650092FFFB /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AD7C5296E1D650092FFFB /* ListView.swift */; };
-		2F9AD7C8296E1E8B0092FFFB /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AD7C7296E1E8B0092FFFB /* ListRowView.swift */; };
-		2F9AD7CA296E21080092FFFB /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AD7C9296E21080092FFFB /* AddView.swift */; };
+		2F9AD7C6296E1D650092FFFB /* DisplayTaskListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AD7C5296E1D650092FFFB /* DisplayTaskListPage.swift */; };
+		2F9AD7CA296E21080092FFFB /* AddTaskPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AD7C9296E21080092FFFB /* AddTaskPage.swift */; };
 		2F9C135B29AF992E0070413E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C135A29AF992E0070413E /* Color.swift */; };
 		2FC3F9CE29AF0FAC0078DFC4 /* ThemeEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC3F9CD29AF0FAC0078DFC4 /* ThemeEnums.swift */; };
-		2FD1CC632A81323200B29F6D /* QuickAddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1CC622A81323200B29F6D /* QuickAddButtonView.swift */; };
+		2FD1CC632A81323200B29F6D /* QuickAddTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1CC622A81323200B29F6D /* QuickAddTaskButton.swift */; };
 		2FD1CC652A813D1B00B29F6D /* ListEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1CC642A813D1B00B29F6D /* ListEnums.swift */; };
 		2FD1CC672A814E1D00B29F6D /* StringUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1CC662A814E1D00B29F6D /* StringUtilities.swift */; };
-		2FD24C6D2A8189EE009FF6F4 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD24C6C2A8189EE009FF6F4 /* OnboardingView.swift */; };
+		2FD24C6D2A8189EE009FF6F4 /* OnboardingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD24C6C2A8189EE009FF6F4 /* OnboardingSection.swift */; };
 		2FD24C702A81BD68009FF6F4 /* HapticOnTapViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD24C6F2A81BD68009FF6F4 /* HapticOnTapViewModifier.swift */; };
 		2FD24C722A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD24C712A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift */; };
 		2FF5C0712A8059810059F348 /* IndicatorEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5C0702A8059810059F348 /* IndicatorEnums.swift */; };
-		2FF5C0742A805AFA0059F348 /* CompletionIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5C0732A805AFA0059F348 /* CompletionIndicatorView.swift */; };
+		2FF5C0742A805AFA0059F348 /* TaskCompletionIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5C0732A805AFA0059F348 /* TaskCompletionIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,43 +80,42 @@
 
 /* Begin PBXFileReference section */
 		2F09B4532A84A0D3009524D2 /* ControlRowButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlRowButtonViewModifier.swift; sourceTree = "<group>"; };
-		2F1EC9F92A7EADB3006B5FC0 /* DisplayItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayItemView.swift; sourceTree = "<group>"; };
+		2F1EC9F92A7EADB3006B5FC0 /* DisplayTaskItemPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskItemPage.swift; sourceTree = "<group>"; };
 		2F1EC9FC2A7EADF4006B5FC0 /* MockupUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupUtilities.swift; sourceTree = "<group>"; };
 		2F1EC9FE2A7EBE31006B5FC0 /* DeviceUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtilities.swift; sourceTree = "<group>"; };
 		2F2B82372B312BF70025A56F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		2F2B823A2B3132170025A56F /* TaskListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPage.swift; sourceTree = "<group>"; };
+		2F2B823A2B3132170025A56F /* DisplayTaskListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskListPage.swift; sourceTree = "<group>"; };
 		2F3E34EE2A84FDFD00DF2C15 /* TextFieldViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModifier.swift; sourceTree = "<group>"; };
 		2F67EC8729ADBF4D00F6E43E /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		2F6BD2492A87EC9F0075ACFF /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		2F6BD24B2A87F4650075ACFF /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		2F6BD24D2A880BFF0075ACFF /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2F7A3AE82A86AFEA00B02C11 /* HapticGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticGenerator.swift; sourceTree = "<group>"; };
-		2F7A3AEA2A86C8AA00B02C11 /* TaskPreviewBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPreviewBoxView.swift; sourceTree = "<group>"; };
+		2F7A3AEA2A86C8AA00B02C11 /* TaskPreviewBoxSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPreviewBoxSection.swift; sourceTree = "<group>"; };
 		2F839E0A2B3122B100C1FCD9 /* TMwatchOS Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMwatchOS Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F839E0C2B3122B100C1FCD9 /* TMwatchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMwatchOSApp.swift; sourceTree = "<group>"; };
 		2F839E0E2B3122B100C1FCD9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2F839E102B3122B500C1FCD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F839E132B3122B500C1FCD9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2F89C3C92972A8C20053DB22 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		2F89C3C92972A8C20053DB22 /* EditTaskPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskPage.swift; sourceTree = "<group>"; };
 		2F89C3CB2973362B0053DB22 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 		2F9573DA2A74E55B009371EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2F9AD7AF296E1C510092FFFB /* Taskmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taskmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F9AD7B2296E1C510092FFFB /* TaskmasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskmasterApp.swift; sourceTree = "<group>"; };
 		2F9AD7B6296E1C540092FFFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F9AD7B9296E1C540092FFFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2F9AD7C5296E1D650092FFFB /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		2F9AD7C7296E1E8B0092FFFB /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
-		2F9AD7C9296E21080092FFFB /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		2F9AD7C5296E1D650092FFFB /* DisplayTaskListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskListPage.swift; sourceTree = "<group>"; };
+		2F9AD7C9296E21080092FFFB /* AddTaskPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPage.swift; sourceTree = "<group>"; };
 		2F9C135A29AF992E0070413E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2FC3F9CD29AF0FAC0078DFC4 /* ThemeEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEnums.swift; sourceTree = "<group>"; };
-		2FD1CC622A81323200B29F6D /* QuickAddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddButtonView.swift; sourceTree = "<group>"; };
+		2FD1CC622A81323200B29F6D /* QuickAddTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddTaskButton.swift; sourceTree = "<group>"; };
 		2FD1CC642A813D1B00B29F6D /* ListEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEnums.swift; sourceTree = "<group>"; };
 		2FD1CC662A814E1D00B29F6D /* StringUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtilities.swift; sourceTree = "<group>"; };
-		2FD24C6C2A8189EE009FF6F4 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		2FD24C6C2A8189EE009FF6F4 /* OnboardingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSection.swift; sourceTree = "<group>"; };
 		2FD24C6F2A81BD68009FF6F4 /* HapticOnTapViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticOnTapViewModifier.swift; sourceTree = "<group>"; };
 		2FD24C712A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactOnTapViewModifier.swift; sourceTree = "<group>"; };
 		2FF5C0702A8059810059F348 /* IndicatorEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorEnums.swift; sourceTree = "<group>"; };
-		2FF5C0732A805AFA0059F348 /* CompletionIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionIndicatorView.swift; sourceTree = "<group>"; };
+		2FF5C0732A805AFA0059F348 /* TaskCompletionIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCompletionIndicator.swift; sourceTree = "<group>"; };
 		2FFAEAF92A885D80002D93E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2FFAEAFB2A885D8B002D93E2 /* SwiftData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftData.framework; path = System/Library/Frameworks/SwiftData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -153,7 +151,7 @@
 		2F2B82392B3132000025A56F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2F2B823A2B3132170025A56F /* TaskListPage.swift */,
+				2F2B823A2B3132170025A56F /* DisplayTaskListPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,11 +229,10 @@
 			isa = PBXGroup;
 			children = (
 				2FF5C0722A805AEA0059F348 /* SubView */,
-				2F9AD7C9296E21080092FFFB /* AddView.swift */,
-				2F1EC9F92A7EADB3006B5FC0 /* DisplayItemView.swift */,
-				2F89C3C92972A8C20053DB22 /* EditView.swift */,
-				2F9AD7C5296E1D650092FFFB /* ListView.swift */,
-				2F9AD7C7296E1E8B0092FFFB /* ListRowView.swift */,
+				2F9AD7C9296E21080092FFFB /* AddTaskPage.swift */,
+				2F1EC9F92A7EADB3006B5FC0 /* DisplayTaskItemPage.swift */,
+				2F9AD7C5296E1D650092FFFB /* DisplayTaskListPage.swift */,
+				2F89C3C92972A8C20053DB22 /* EditTaskPage.swift */,
 				2F89C3CB2973362B0053DB22 /* SettingsPage.swift */,
 			);
 			path = Views;
@@ -280,10 +277,10 @@
 		2FF5C0722A805AEA0059F348 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
-				2FF5C0732A805AFA0059F348 /* CompletionIndicatorView.swift */,
-				2FD1CC622A81323200B29F6D /* QuickAddButtonView.swift */,
-				2FD24C6C2A8189EE009FF6F4 /* OnboardingView.swift */,
-				2F7A3AEA2A86C8AA00B02C11 /* TaskPreviewBoxView.swift */,
+				2FF5C0732A805AFA0059F348 /* TaskCompletionIndicator.swift */,
+				2FD1CC622A81323200B29F6D /* QuickAddTaskButton.swift */,
+				2FD24C6C2A8189EE009FF6F4 /* OnboardingSection.swift */,
+				2F7A3AEA2A86C8AA00B02C11 /* TaskPreviewBoxSection.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -412,7 +409,7 @@
 			files = (
 				2F839E0F2B3122B100C1FCD9 /* ContentView.swift in Sources */,
 				2F839E0D2B3122B100C1FCD9 /* TMwatchOSApp.swift in Sources */,
-				2F2B823B2B3132170025A56F /* TaskListPage.swift in Sources */,
+				2F2B823B2B3132170025A56F /* DisplayTaskListPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,30 +417,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F7A3AEB2A86C8AA00B02C11 /* TaskPreviewBoxView.swift in Sources */,
+				2F7A3AEB2A86C8AA00B02C11 /* TaskPreviewBoxSection.swift in Sources */,
 				2F6BD24C2A87F4650075ACFF /* TaskViewModel.swift in Sources */,
-				2F1EC9FA2A7EADB3006B5FC0 /* DisplayItemView.swift in Sources */,
+				2F1EC9FA2A7EADB3006B5FC0 /* DisplayTaskItemPage.swift in Sources */,
 				2F6BD24E2A880BFF0075ACFF /* String.swift in Sources */,
 				2FC3F9CE29AF0FAC0078DFC4 /* ThemeEnums.swift in Sources */,
 				2F6BD24A2A87EC9F0075ACFF /* TaskItem.swift in Sources */,
 				2FD24C702A81BD68009FF6F4 /* HapticOnTapViewModifier.swift in Sources */,
-				2F89C3CA2972A8C20053DB22 /* EditView.swift in Sources */,
-				2FD24C6D2A8189EE009FF6F4 /* OnboardingView.swift in Sources */,
-				2FF5C0742A805AFA0059F348 /* CompletionIndicatorView.swift in Sources */,
+				2F89C3CA2972A8C20053DB22 /* EditTaskPage.swift in Sources */,
+				2FD24C6D2A8189EE009FF6F4 /* OnboardingSection.swift in Sources */,
+				2FF5C0742A805AFA0059F348 /* TaskCompletionIndicator.swift in Sources */,
 				2F9C135B29AF992E0070413E /* Color.swift in Sources */,
-				2FD1CC632A81323200B29F6D /* QuickAddButtonView.swift in Sources */,
+				2FD1CC632A81323200B29F6D /* QuickAddTaskButton.swift in Sources */,
 				2F89C3CC2973362B0053DB22 /* SettingsPage.swift in Sources */,
 				2F09B4542A84A0D3009524D2 /* ControlRowButtonViewModifier.swift in Sources */,
 				2F1EC9FF2A7EBE31006B5FC0 /* DeviceUtilities.swift in Sources */,
 				2FD1CC672A814E1D00B29F6D /* StringUtilities.swift in Sources */,
 				2F9AD7B3296E1C510092FFFB /* TaskmasterApp.swift in Sources */,
-				2F9AD7CA296E21080092FFFB /* AddView.swift in Sources */,
+				2F9AD7CA296E21080092FFFB /* AddTaskPage.swift in Sources */,
 				2FF5C0712A8059810059F348 /* IndicatorEnums.swift in Sources */,
-				2F9AD7C6296E1D650092FFFB /* ListView.swift in Sources */,
+				2F9AD7C6296E1D650092FFFB /* DisplayTaskListPage.swift in Sources */,
 				2F67EC8829ADBF4D00F6E43E /* SettingsStore.swift in Sources */,
 				2F3E34EF2A84FDFD00DF2C15 /* TextFieldViewModifier.swift in Sources */,
 				2FD1CC652A813D1B00B29F6D /* ListEnums.swift in Sources */,
-				2F9AD7C8296E1E8B0092FFFB /* ListRowView.swift in Sources */,
 				2F1EC9FD2A7EADF4006B5FC0 /* MockupUtilities.swift in Sources */,
 				2F7A3AE92A86AFEA00B02C11 /* HapticGenerator.swift in Sources */,
 				2FD24C722A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift in Sources */,

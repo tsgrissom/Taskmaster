@@ -9,7 +9,7 @@ struct TaskmasterApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                ListView()
+                DisplayTaskListPage()
             }
             .environmentObject(settings)
         }

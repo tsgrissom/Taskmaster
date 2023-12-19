@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TaskPreviewBoxView: View {
+struct TaskPreviewBoxSection: View {
 
     let isTextPrepared: Bool
     let text: String
@@ -22,7 +22,7 @@ struct TaskPreviewBoxView: View {
     }
 }
 
-extension TaskPreviewBoxView {
+extension TaskPreviewBoxSection {
     
     private var headerRow: some View {
         let title = Text("Task Preview:")
@@ -62,7 +62,7 @@ extension TaskPreviewBoxView {
 
 #Preview {
     VStack {
-        TaskPreviewBoxView(isTextPrepared: true, text: "Lorem ipsum dolor")
-        TaskPreviewBoxView(isTextPrepared: false, text: "Lorem ipsum dolor")
+        TaskPreviewBoxSection(isTextPrepared: true, text: "Lorem ipsum dolor")
+        TaskPreviewBoxSection(isTextPrepared: false, text: "Lorem ipsum dolor")
     }
 }

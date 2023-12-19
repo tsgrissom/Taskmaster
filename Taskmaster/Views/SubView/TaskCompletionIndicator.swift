@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Represents a deeply customizable checkbox to be used within views which need to indicate a task's status as complete or incomplete.
-struct CompletionIndicatorView: View {
+struct TaskCompletionIndicator: View {
     
     // MARK: Environment Variables
     
@@ -101,23 +101,23 @@ struct CompletionIndicatorView: View {
 
 #Preview {
     VStack {
-        CompletionIndicatorView(isComplete: true)
-        CompletionIndicatorView(isComplete: true, fillCompleted: true)
-        CompletionIndicatorView()
-        CompletionIndicatorView(isComplete: true, frame: .circle, indicator: .xmark)
-        CompletionIndicatorView(isComplete: true, fillCompleted: true, frame: .circle, indicator: .xmark)
-        CompletionIndicatorView(frame: .circle, indicator: .xmark)
-        CompletionIndicatorView(isComplete: true, frame: .square)
-        CompletionIndicatorView(isComplete: true, fillCompleted: true, frame: .square)
-        CompletionIndicatorView(frame: .square)
-        CompletionIndicatorView(isComplete: true, frame: .app)
-        CompletionIndicatorView(isComplete: true, fillCompleted: true, frame: .app)
-        CompletionIndicatorView(frame: .app)
-        CompletionIndicatorView(isComplete: true, frame: .diamond)
-        CompletionIndicatorView(isComplete: true, fillCompleted: true, frame: .diamond)
-        CompletionIndicatorView(frame: .diamond)
-        CompletionIndicatorView(isComplete: true, frame: .roundsquare)
-        CompletionIndicatorView(isComplete: true, fillCompleted: true, frame: .roundsquare)
-        CompletionIndicatorView(frame: .roundsquare)
+        TaskCompletionIndicator(isComplete: true)
+        TaskCompletionIndicator(isComplete: true, fillCompleted: true)
+        TaskCompletionIndicator()
+        TaskCompletionIndicator(isComplete: true, frame: .circle, indicator: .xmark)
+        TaskCompletionIndicator(isComplete: true, fillCompleted: true, frame: .circle, indicator: .xmark)
+        TaskCompletionIndicator(frame: .circle, indicator: .xmark)
+        TaskCompletionIndicator(isComplete: true, frame: .square)
+        TaskCompletionIndicator(isComplete: true, fillCompleted: true, frame: .square)
+        TaskCompletionIndicator(frame: .square)
+        TaskCompletionIndicator(isComplete: true, frame: .app)
+        TaskCompletionIndicator(isComplete: true, fillCompleted: true, frame: .app)
+        TaskCompletionIndicator(frame: .app)
+        TaskCompletionIndicator(isComplete: true, frame: .diamond)
+        TaskCompletionIndicator(isComplete: true, fillCompleted: true, frame: .diamond)
+        TaskCompletionIndicator(frame: .diamond)
+        TaskCompletionIndicator(isComplete: true, frame: .roundsquare)
+        TaskCompletionIndicator(isComplete: true, fillCompleted: true, frame: .roundsquare)
+        TaskCompletionIndicator(frame: .roundsquare)
     }
 }
