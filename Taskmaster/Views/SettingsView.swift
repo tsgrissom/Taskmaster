@@ -5,13 +5,17 @@ import SwiftData
 struct SettingsView: View {
     
     // MARK: Environment Variables
-    @Environment(\.modelContext) private var context
-    @EnvironmentObject private var settings: SettingsStore
+    @Environment(\.modelContext)
+    private var context
+    @EnvironmentObject
+    private var settings: SettingsStore
     
-    @Query private var tasks: [TaskItem]
+    @Query
+    private var tasks: [TaskItem]
     
     // MARK: Stateful Variables
-    @State var showAlert: Bool = false
+    @State
+    private var showConfirmClearTasksAlert: Bool = false
     
     // MARK: Computed Variables
     private var shouldUseHaptics: Bool {
@@ -23,7 +27,7 @@ struct SettingsView: View {
     }
     
     // MARK: Layout Declaration
-    var body: some View {
+    public var body: some View {
         VStack {
             List {
                 appearanceSection
@@ -124,7 +128,7 @@ extension SettingsView {
         
         func onClearButtonPress() {
             haptics.notification(.warning)
-            showAlert.toggle()
+            showConfirmClearTasksAlert.toggle()
         }
         
         func clearConfirmAlert() -> Alert {
@@ -156,7 +160,7 @@ extension SettingsView {
                 .cornerRadius(5)
                 .foregroundColor(.white)
                 .padding(2)
-                .alert(isPresented: $showAlert, content: count > 0 ? clearConfirmAlert : noTasksAlert)
+                .alert(isPresented: $showConfirmClearTasksAlert, content: count > 0 ? clearConfirmAlert : noTasksAlert)
             }
         }
     }
