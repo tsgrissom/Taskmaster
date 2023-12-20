@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct DisplayTaskItemPage: View {
     
@@ -80,7 +81,7 @@ struct DisplayTaskItemPage: View {
         HapticGenerator(shouldUseHaptics)
     }
     
-    private var isEditedFromTaskBody: Bool {
+    private var isTaskBodyEdited: Bool {
         return inputText != task.body && isInputFocused
     }
     
@@ -107,12 +108,17 @@ struct DisplayTaskItemPage: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom, 10)
                 
-                rowEditedButtonControls
-                    .padding(.horizontal, controlRowHzPad)
-                    .padding(.bottom, 10)
+                HStack {
+                    buttonReset
+                    buttonSave
+                }
+                .padding(.horizontal, controlRowHzPad)
+                .padding(.bottom, 10)
                 
-                rowDismissView
-                    .padding(.horizontal, controlRowHzPad)
+                HStack {
+                    buttonDismissView
+                }
+                .padding(.horizontal, controlRowHzPad)
             }
             .padding(.top, devicePad)
         }
@@ -157,9 +163,16 @@ struct DisplayTaskItemPage: View {
                     haptics.impact(.medium)
                 }
             
-            rowTaskControls
-                .padding(.top, 10)
-                .padding(.horizontal, 40)
+            HStack(spacing: 10) {
+                buttonEdit
+                buttonDuplicate
+            
+                Spacer()
+                
+                buttonDelete
+            }
+            .padding(.top, 10)
+            .padding(.horizontal, 40)
             
             Spacer()
         }
@@ -273,14 +286,14 @@ extension DisplayTaskItemPage {
             HStack {
                 Spacer()
                 Button(action: saveEditing) {
-                    Image(systemName: "return")
+                    Image(systemName: "keyboard.chevron.compact.down")
                         .imageScale(.small)
                         .foregroundStyle(.gray)
                 }
                 .buttonStyle(.plain)
             }
             .padding(.bottom)
-            .padding(.trailing, 8)
+            .padding(.trailing, 2)
         }
     }
     
@@ -323,27 +336,25 @@ extension DisplayTaskItemPage {
     /**
      Presents an overlayed HStack giving the user a button to dismiss their keyboard while focused on the text field.
      */
-    private var rowDismissView: some View {
-        func onDismissButtonPress() {
+    private var buttonDismissView: some View {
+        func onPress() {
             haptics.impact(.light)
             dismiss()
         }
         
-        return HStack {
-            Button(action: onDismissButtonPress) {
-                Spacer()
-                Image(systemName: "xmark")
-                    .imageScale(.large)
-                    .foregroundStyle(systemColorScheme == .dark ? .white : .secondary)
-                Spacer()
-            }
-            .buttonStyle(.bordered)
-            .tint(.gray)
+        return Button(action: onPress) {
+            Spacer()
+            Image(systemName: "xmark")
+                .imageScale(.large)
+                .foregroundStyle(systemColorScheme == .dark ? .white : .secondary)
+            Spacer()
         }
+        .buttonStyle(.bordered)
+        .tint(.gray)
     }
     
-    private var rowEditedButtonControls: some View {
-        func onResetButtonPress() {
+    private var buttonReset: some View {
+        func onPress() {
             withAnimation(.smooth(duration: 0.45)) {
                 buttonResetAnimate = true
             }
@@ -353,19 +364,19 @@ extension DisplayTaskItemPage {
             }
         }
         
-        var buttonReset: some View {
-            Button(action: onResetButtonPress) {
-                Spacer()
-                Image(systemName: "arrow.counterclockwise")
-                    .rotationEffect(.degrees(buttonResetAnimate ? -360 : 0.0))
-                Spacer()
-            }
-            .buttonStyle(.bordered)
-            .tint(.yellow)
-            .disabled(!isEditedFromTaskBody)
+        return Button(action: onPress) {
+            Spacer()
+            Image(systemName: "arrow.counterclockwise")
+                .rotationEffect(.degrees(buttonResetAnimate ? -360 : 0.0))
+            Spacer()
         }
-        
-        func onSaveButtonPress() {
+        .buttonStyle(.bordered)
+        .tint(.yellow)
+        .disabled(!isTaskBodyEdited)
+    }
+    
+    private var buttonSave: some View {
+        func onPress() {
             if inputText.trim().count < MIN_LENGTH {
                 buttonSaveAnimate = 1
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -382,35 +393,28 @@ extension DisplayTaskItemPage {
             }
         }
         
-        var buttonSave: some View {
-            let color  = buttonSaveAnimate == 1 ? Color.red : Color.green
-            let symbol = switch (buttonSaveAnimate) {
-            case 1:
-                "xmark"
-            case 2:
-                "square.and.arrow.down"
-            default:
-                "checkmark"
-            }
-            
-            return Button(action: onSaveButtonPress) {
-                Spacer()
-                Image(systemName: symbol)
-                Spacer()
-            }
-            .buttonStyle(.bordered)
-            .tint(color)
-            .disabled(!isEditedFromTaskBody)
+        let color  = buttonSaveAnimate == 1 ? Color.red : Color.green
+        let symbol = switch (buttonSaveAnimate) {
+        case 1:
+            "xmark"
+        case 2:
+            "square.and.arrow.down"
+        default:
+            "checkmark"
         }
         
-        return HStack {
-            buttonReset
-            buttonSave
+        return Button(action: onPress) {
+            Spacer()
+            Image(systemName: symbol)
+            Spacer()
         }
+        .buttonStyle(.bordered)
+        .tint(color)
+        .disabled(!isTaskBodyEdited)
     }
     
     private var buttonDelete: some View {
-        func onDeleteButtonPress() {
+        func onPress() {
             haptics.impact(.heavy)
             withAnimation {
                 buttonDeleteAnimate = true
@@ -433,7 +437,7 @@ extension DisplayTaskItemPage {
             }
         }
         
-        return Button(action: onDeleteButtonPress) {
+        return Button(action: onPress) {
             Image(systemName: "trash")
                 .imageScale(.medium)
                 .rotationEffect(.degrees(buttonDeleteAnimate ? 180 : 0))
@@ -444,7 +448,7 @@ extension DisplayTaskItemPage {
     }
     
     private var buttonDuplicate: some View {
-        func onDuplicateButtonPress() {
+        func onPress() {
             let model = TaskItem(body: task.body, isComplete: task.isComplete)
             haptics.notification(.success)
             buttonDuplicateAnimate = true
@@ -455,15 +459,15 @@ extension DisplayTaskItemPage {
             }
         }
         
-        return Button(action: onDuplicateButtonPress) {
-            Text("Duplicate")
+        return Button("Duplicate") {
+            onPress()
         }
         .buttonStyle(.borderless)
         .tint(buttonDuplicateAnimate ? .white : .blue)
     }
     
     private var buttonEdit: some View {
-        func onEditButtonPress() {
+        func onPress() {
             haptics.impact(.light)
             buttonEditAnimate = true
             startEditing()
@@ -473,30 +477,15 @@ extension DisplayTaskItemPage {
             }
         }
         
-        return Button(action: onEditButtonPress) {
-            Text("Edit")
+        return Button("Edit") {
+            onPress()
         }
         .buttonStyle(.borderless)
         .tint(buttonEditAnimate ? .white : .blue)
     }
-    
-    /**
-     Presents a row of buttons for controlling the displayed task.
-     */
-    private var rowTaskControls: some View {
-        HStack(spacing: 10) {
-            buttonEdit
-            buttonDuplicate
-        
-            Spacer()
-            
-            buttonDelete
-        }
-    }
 }
 
-// MARK: Preview
-#Preview {
-    DisplayTaskItemPage(task: MockupUtilities.getMockTask())
-        .environmentObject(SettingsStore())
-}
+//// MARK: Preview
+//#Preview {
+//    DisplayTaskItemPage(task: MockupUtilities.getMockTask(), completedColor: .accentColor)
+//}
