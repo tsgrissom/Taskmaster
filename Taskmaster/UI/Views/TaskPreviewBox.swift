@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TaskPreviewBoxSection: View {
+struct TaskPreviewBox: View {
 
     private let isTextPrepared: Bool
     private let text: String
@@ -21,7 +21,7 @@ struct TaskPreviewBoxSection: View {
     }
 }
 
-extension TaskPreviewBoxSection {
+extension TaskPreviewBox {
     
     private var layerBackground: some View {
         RoundedRectangle(cornerRadius: 25)
@@ -78,7 +78,7 @@ extension TaskPreviewBoxSection {
 
 #Preview {
     VStack {
-        TaskPreviewBoxSection(isTextPrepared: true, text: "Lorem ipsum dolor")
-        TaskPreviewBoxSection(isTextPrepared: false, text: "Lorem ipsum dolor")
+        TaskPreviewBox(isTextPrepared: true, text: "Lorem ipsum dolor")
+        TaskPreviewBox(isTextPrepared: false, text: "Lorem ipsum dolor")
     }
 }

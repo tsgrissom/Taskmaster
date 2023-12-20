@@ -400,7 +400,7 @@ extension AddTaskPage {
     }
     
     private var sectionTaskPreviewBox: some View {
-        TaskPreviewBoxSection(
+        TaskPreviewBox(
             isTextPrepared: isTextPreparedForSubmission,
             text: inputText
         )
