@@ -7,21 +7,22 @@ import SwiftUI
 struct OnboardingSection: View {
     
     // MARK: Environment Variables
-    @EnvironmentObject var settings: SettingsStore
+    @EnvironmentObject
+    private var settings: SettingsStore
     
     // MARK: Constants
-    let noItemsBlob = "Looking to organize your life? Taskmaster can help with that. Press the big purple button below to begin composing your first task."
-    let blobPadding:   CGFloat = DeviceUtilities.isPhone() ? 30 : 200
-    let initialOffset: CGFloat = -300.0
-    let animateOffset: CGFloat = DeviceUtilities.isTablet() ? -400.0 : -100.0
+    private let noItemsBlob   = "Looking to organize your life? Taskmaster can help with that. Press the big purple button below to begin composing your first task."
+    private let blobPadding   = DeviceUtilities.isPhone() ? 30.0 : 200.0
+    private let initialOffset = -300.0
+    private let animateOffset = DeviceUtilities.isTablet() ? -400.0 : -100.0
     
     // MARK: Stateful Variables
     @State var animate = false
     
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 0) {
-            blobSection
-            promptAndButtonSection
+            sectionBlob
+            sectionPromptAndButton
                 .padding(.top, 25)
         }
         .offset(y: animate ? (initialOffset + animateOffset) : initialOffset)
@@ -40,7 +41,7 @@ extension OnboardingSection {
     
     // MARK: Superviews
     
-    private var blobSection: some View {
+    private var sectionBlob: some View {
         VStack {
             Text(noItemsBlob)
                 .multilineTextAlignment(.center)
@@ -48,11 +49,11 @@ extension OnboardingSection {
         }
     }
     
-    private var promptAndButtonSection: some View {
+    private var sectionPromptAndButton: some View {
         VStack(spacing: 0) {
             Text("Ready to get started? ⬇️")
                 .font(.caption)
-            beginComposingButton
+            buttonBeginComposing
                 .padding(.horizontal)
                 .padding(.bottom, 50)
                 .padding(.top, 10)
@@ -62,7 +63,7 @@ extension OnboardingSection {
     
     // MARK: Subviews
     
-    private var beginComposingButton: some View {
+    private var buttonBeginComposing: some View {
         NavigationLink(
             destination: AddTaskPage(),
             label: {
