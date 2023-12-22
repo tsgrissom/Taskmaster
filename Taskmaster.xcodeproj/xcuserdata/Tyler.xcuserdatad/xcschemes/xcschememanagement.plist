@@ -7,12 +7,17 @@
 		<key>TMwatchOS Watch App.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
+		</dict>
+		<key>Taskmaster-watchOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Taskmaster.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>TodoList copy.xcscheme_^#shared#^_</key>
 		<dict>
@@ -23,6 +28,19 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>2F839E092B3122B100C1FCD9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2F9AD7AE296E1C510092FFFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

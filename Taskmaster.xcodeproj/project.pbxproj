@@ -13,6 +13,8 @@
 		2F1EC9FF2A7EBE31006B5FC0 /* DeviceUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1EC9FE2A7EBE31006B5FC0 /* DeviceUtilities.swift */; };
 		2F2B82382B312BF70025A56F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2F2B82372B312BF70025A56F /* .gitignore */; };
 		2F2B823B2B3132170025A56F /* DisplayTaskListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B823A2B3132170025A56F /* DisplayTaskListPage.swift */; };
+		2F34B6F32B36382A002ED58C /* AddTaskPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34B6F22B36382A002ED58C /* AddTaskPage.swift */; };
+		2F34B6F42B363D6D002ED58C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6BD24D2A880BFF0075ACFF /* String.swift */; };
 		2F3E34EF2A84FDFD00DF2C15 /* TextFieldViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3E34EE2A84FDFD00DF2C15 /* TextFieldViewModifier.swift */; };
 		2F67EC8829ADBF4D00F6E43E /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F67EC8729ADBF4D00F6E43E /* SettingsStore.swift */; };
 		2F6BD24A2A87EC9F0075ACFF /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6BD2492A87EC9F0075ACFF /* TaskItem.swift */; };
@@ -20,11 +22,10 @@
 		2F6BD24E2A880BFF0075ACFF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6BD24D2A880BFF0075ACFF /* String.swift */; };
 		2F7A3AE92A86AFEA00B02C11 /* HapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7A3AE82A86AFEA00B02C11 /* HapticGenerator.swift */; };
 		2F7A3AEB2A86C8AA00B02C11 /* TaskPreviewBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7A3AEA2A86C8AA00B02C11 /* TaskPreviewBox.swift */; };
-		2F839E0D2B3122B100C1FCD9 /* TMwatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F839E0C2B3122B100C1FCD9 /* TMwatchOSApp.swift */; };
-		2F839E0F2B3122B100C1FCD9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F839E0E2B3122B100C1FCD9 /* ContentView.swift */; };
+		2F839E0D2B3122B100C1FCD9 /* TaskmasterApp-watchOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F839E0C2B3122B100C1FCD9 /* TaskmasterApp-watchOS.swift */; };
 		2F839E112B3122B500C1FCD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F839E102B3122B500C1FCD9 /* Assets.xcassets */; };
 		2F839E142B3122B500C1FCD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F839E132B3122B500C1FCD9 /* Preview Assets.xcassets */; };
-		2F839E172B3122B500C1FCD9 /* TMwatchOS Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2F839E0A2B3122B100C1FCD9 /* TMwatchOS Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2F839E172B3122B500C1FCD9 /* Taskmaster-watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2F839E0A2B3122B100C1FCD9 /* Taskmaster-watchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2F89C3CA2972A8C20053DB22 /* EditTaskPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89C3C92972A8C20053DB22 /* EditTaskPage.swift */; };
 		2F89C3CC2973362B0053DB22 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89C3CB2973362B0053DB22 /* SettingsPage.swift */; };
 		2F9AD7B3296E1C510092FFFB /* TaskmasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AD7B2296E1C510092FFFB /* TaskmasterApp.swift */; };
@@ -33,6 +34,9 @@
 		2F9AD7C6296E1D650092FFFB /* DisplayTaskListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AD7C5296E1D650092FFFB /* DisplayTaskListPage.swift */; };
 		2F9AD7CA296E21080092FFFB /* AddTaskPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AD7C9296E21080092FFFB /* AddTaskPage.swift */; };
 		2F9C135B29AF992E0070413E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C135A29AF992E0070413E /* Color.swift */; };
+		2FBE622A2B35E53B00729B48 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6BD2492A87EC9F0075ACFF /* TaskItem.swift */; };
+		2FBE62302B35E93100729B48 /* SwiftData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBE622F2B35E93100729B48 /* SwiftData.framework */; };
+		2FBE62322B35E93B00729B48 /* SwiftData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBE62312B35E93B00729B48 /* SwiftData.framework */; };
 		2FC3F9CE29AF0FAC0078DFC4 /* ThemeEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC3F9CD29AF0FAC0078DFC4 /* ThemeEnums.swift */; };
 		2FD1CC632A81323200B29F6D /* QuickAddTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1CC622A81323200B29F6D /* QuickAddTaskButton.swift */; };
 		2FD1CC652A813D1B00B29F6D /* ListEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1CC642A813D1B00B29F6D /* ListEnums.swift */; };
@@ -60,7 +64,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				2F839E172B3122B500C1FCD9 /* TMwatchOS Watch App.app in Embed Watch Content */,
+				2F839E172B3122B500C1FCD9 /* Taskmaster-watchOS.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +88,9 @@
 		2F1EC9FE2A7EBE31006B5FC0 /* DeviceUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtilities.swift; sourceTree = "<group>"; };
 		2F2B82372B312BF70025A56F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2F2B823A2B3132170025A56F /* DisplayTaskListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskListPage.swift; sourceTree = "<group>"; };
+		2F34B6F02B35F350002ED58C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2F34B6F12B35F45C002ED58C /* Taskmaster-watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Taskmaster-watchOS.entitlements"; sourceTree = "<group>"; };
+		2F34B6F22B36382A002ED58C /* AddTaskPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPage.swift; sourceTree = "<group>"; };
 		2F3E34EE2A84FDFD00DF2C15 /* TextFieldViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModifier.swift; sourceTree = "<group>"; };
 		2F67EC8729ADBF4D00F6E43E /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		2F6BD2492A87EC9F0075ACFF /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
@@ -91,9 +98,8 @@
 		2F6BD24D2A880BFF0075ACFF /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2F7A3AE82A86AFEA00B02C11 /* HapticGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticGenerator.swift; sourceTree = "<group>"; };
 		2F7A3AEA2A86C8AA00B02C11 /* TaskPreviewBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPreviewBox.swift; sourceTree = "<group>"; };
-		2F839E0A2B3122B100C1FCD9 /* TMwatchOS Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMwatchOS Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F839E0C2B3122B100C1FCD9 /* TMwatchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMwatchOSApp.swift; sourceTree = "<group>"; };
-		2F839E0E2B3122B100C1FCD9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2F839E0A2B3122B100C1FCD9 /* Taskmaster-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taskmaster-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F839E0C2B3122B100C1FCD9 /* TaskmasterApp-watchOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskmasterApp-watchOS.swift"; sourceTree = "<group>"; };
 		2F839E102B3122B500C1FCD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F839E132B3122B500C1FCD9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F89C3C92972A8C20053DB22 /* EditTaskPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskPage.swift; sourceTree = "<group>"; };
@@ -106,6 +112,9 @@
 		2F9AD7C5296E1D650092FFFB /* DisplayTaskListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskListPage.swift; sourceTree = "<group>"; };
 		2F9AD7C9296E21080092FFFB /* AddTaskPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPage.swift; sourceTree = "<group>"; };
 		2F9C135A29AF992E0070413E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		2FBE622B2B35E82400729B48 /* Taskmaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Taskmaster.entitlements; sourceTree = "<group>"; };
+		2FBE622F2B35E93100729B48 /* SwiftData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftData.framework; path = System/Library/Frameworks/SwiftData.framework; sourceTree = SDKROOT; };
+		2FBE62312B35E93B00729B48 /* SwiftData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftData.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.2.sdk/System/Library/Frameworks/SwiftData.framework; sourceTree = DEVELOPER_DIR; };
 		2FC3F9CD29AF0FAC0078DFC4 /* ThemeEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEnums.swift; sourceTree = "<group>"; };
 		2FD1CC622A81323200B29F6D /* QuickAddTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddTaskButton.swift; sourceTree = "<group>"; };
 		2FD1CC642A813D1B00B29F6D /* ListEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEnums.swift; sourceTree = "<group>"; };
@@ -115,7 +124,6 @@
 		2FF5C0702A8059810059F348 /* IndicatorEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorEnums.swift; sourceTree = "<group>"; };
 		2FF5C0732A805AFA0059F348 /* TaskCompletionIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCompletionIndicator.swift; sourceTree = "<group>"; };
 		2FFAEAF92A885D80002D93E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		2FFAEAFB2A885D8B002D93E2 /* SwiftData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftData.framework; path = System/Library/Frameworks/SwiftData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBE62322B35E93B00729B48 /* SwiftData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBE62302B35E93100729B48 /* SwiftData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +159,7 @@
 		2F2B82392B3132000025A56F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2F34B6F22B36382A002ED58C /* AddTaskPage.swift */,
 				2F2B823A2B3132170025A56F /* DisplayTaskListPage.swift */,
 			);
 			path = Views;
@@ -197,16 +208,17 @@
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
-		2F839E0B2B3122B100C1FCD9 /* TMwatchOS Watch App */ = {
+		2F839E0B2B3122B100C1FCD9 /* Taskmaster-watchOS */ = {
 			isa = PBXGroup;
 			children = (
+				2F34B6F12B35F45C002ED58C /* Taskmaster-watchOS.entitlements */,
+				2F34B6F02B35F350002ED58C /* Info.plist */,
 				2F2B82392B3132000025A56F /* Views */,
-				2F839E0C2B3122B100C1FCD9 /* TMwatchOSApp.swift */,
-				2F839E0E2B3122B100C1FCD9 /* ContentView.swift */,
+				2F839E0C2B3122B100C1FCD9 /* TaskmasterApp-watchOS.swift */,
 				2F839E102B3122B500C1FCD9 /* Assets.xcassets */,
 				2F839E122B3122B500C1FCD9 /* Preview Content */,
 			);
-			path = "TMwatchOS Watch App";
+			path = "Taskmaster-watchOS";
 			sourceTree = "<group>";
 		};
 		2F839E122B3122B500C1FCD9 /* Preview Content */ = {
@@ -222,7 +234,7 @@
 			children = (
 				2F2B82372B312BF70025A56F /* .gitignore */,
 				2F9AD7B1296E1C510092FFFB /* Taskmaster */,
-				2F839E0B2B3122B100C1FCD9 /* TMwatchOS Watch App */,
+				2F839E0B2B3122B100C1FCD9 /* Taskmaster-watchOS */,
 				2F9AD7B0296E1C510092FFFB /* Products */,
 				2FFAEAFA2A885D8B002D93E2 /* Frameworks */,
 			);
@@ -232,7 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				2F9AD7AF296E1C510092FFFB /* Taskmaster.app */,
-				2F839E0A2B3122B100C1FCD9 /* TMwatchOS Watch App.app */,
+				2F839E0A2B3122B100C1FCD9 /* Taskmaster-watchOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +252,7 @@
 		2F9AD7B1296E1C510092FFFB /* Taskmaster */ = {
 			isa = PBXGroup;
 			children = (
+				2FBE622B2B35E82400729B48 /* Taskmaster.entitlements */,
 				2FFAEAF92A885D80002D93E2 /* Info.plist */,
 				2FF5C0752A806B7C0059F348 /* Enums */,
 				2F9C135929AF991A0070413E /* Extensions */,
@@ -303,7 +316,8 @@
 		2FFAEAFA2A885D8B002D93E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2FFAEAFB2A885D8B002D93E2 /* SwiftData.framework */,
+				2FBE62312B35E93B00729B48 /* SwiftData.framework */,
+				2FBE622F2B35E93100729B48 /* SwiftData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -311,9 +325,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2F839E092B3122B100C1FCD9 /* TMwatchOS Watch App */ = {
+		2F839E092B3122B100C1FCD9 /* Taskmaster-watchOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F839E1B2B3122B500C1FCD9 /* Build configuration list for PBXNativeTarget "TMwatchOS Watch App" */;
+			buildConfigurationList = 2F839E1B2B3122B500C1FCD9 /* Build configuration list for PBXNativeTarget "Taskmaster-watchOS" */;
 			buildPhases = (
 				2F839E062B3122B100C1FCD9 /* Sources */,
 				2F839E072B3122B100C1FCD9 /* Frameworks */,
@@ -323,9 +337,9 @@
 			);
 			dependencies = (
 			);
-			name = "TMwatchOS Watch App";
+			name = "Taskmaster-watchOS";
 			productName = "TMwatchOS Watch App";
-			productReference = 2F839E0A2B3122B100C1FCD9 /* TMwatchOS Watch App.app */;
+			productReference = 2F839E0A2B3122B100C1FCD9 /* Taskmaster-watchOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2F9AD7AE296E1C510092FFFB /* Taskmaster */ = {
@@ -380,7 +394,7 @@
 			projectRoot = "";
 			targets = (
 				2F9AD7AE296E1C510092FFFB /* Taskmaster */,
-				2F839E092B3122B100C1FCD9 /* TMwatchOS Watch App */,
+				2F839E092B3122B100C1FCD9 /* Taskmaster-watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -412,9 +426,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F839E0F2B3122B100C1FCD9 /* ContentView.swift in Sources */,
-				2F839E0D2B3122B100C1FCD9 /* TMwatchOSApp.swift in Sources */,
+				2F839E0D2B3122B100C1FCD9 /* TaskmasterApp-watchOS.swift in Sources */,
+				2F34B6F32B36382A002ED58C /* AddTaskPage.swift in Sources */,
+				2F34B6F42B363D6D002ED58C /* String.swift in Sources */,
 				2F2B823B2B3132170025A56F /* DisplayTaskListPage.swift in Sources */,
+				2FBE622A2B35E53B00729B48 /* TaskItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +471,7 @@
 /* Begin PBXTargetDependency section */
 		2F839E162B3122B500C1FCD9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2F839E092B3122B100C1FCD9 /* TMwatchOS Watch App */;
+			target = 2F839E092B3122B100C1FCD9 /* Taskmaster-watchOS */;
 			targetProxy = 2F839E152B3122B500C1FCD9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -467,14 +483,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Taskmaster-watchOS/Taskmaster-watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TMwatchOS Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Taskmaster-watchOS/Preview\\ Content";
 				DEVELOPMENT_TEAM = 764Y5F8PLG;
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = TMwatchOS;
+				INFOPLIST_FILE = "Taskmaster-watchOS/Info.plist";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = io.github.tsgrissom.Taskmaster;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -484,7 +501,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.tsgrissom.Taskmaster.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Taskmaster-watchOS";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -501,14 +518,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Taskmaster-watchOS/Taskmaster-watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TMwatchOS Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Taskmaster-watchOS/Preview\\ Content";
 				DEVELOPMENT_TEAM = 764Y5F8PLG;
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = TMwatchOS;
+				INFOPLIST_FILE = "Taskmaster-watchOS/Info.plist";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = io.github.tsgrissom.Taskmaster;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -518,7 +536,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.tsgrissom.Taskmaster.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Taskmaster-watchOS";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -650,6 +668,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Taskmaster/Taskmaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Taskmaster/Preview Content\"";
@@ -685,6 +704,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Taskmaster/Taskmaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Taskmaster/Preview Content\"";
@@ -717,7 +737,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2F839E1B2B3122B500C1FCD9 /* Build configuration list for PBXNativeTarget "TMwatchOS Watch App" */ = {
+		2F839E1B2B3122B500C1FCD9 /* Build configuration list for PBXNativeTarget "Taskmaster-watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F839E192B3122B500C1FCD9 /* Debug */,

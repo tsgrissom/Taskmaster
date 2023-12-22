@@ -39,16 +39,36 @@ private struct ListRow: View {
 
 struct DisplayTaskListPage: View {
     
+    @Environment(\.modelContext)
+    private var context
+    
+    @Query
+    private var tasks: [TaskItem]
+    
     public var body: some View {
-        List {
-            ForEach(1...50, id: \.self) { _ in
-                ListRow()
+        VStack {
+            if tasks.isEmpty {
+                Text("No tasks yet!")
+                    .foregroundStyle(.red)
+                List {
+                    ForEach(1...50, id: \.self) { _ in
+                        ListRow(
+                            taskBody: "Lorem ipsum dolor"
+                        )
+                    }
+                }
+            } else {
+                List {
+                    ForEach(tasks) { task in
+                        ListRow(taskBody: task.body, completed: task.isComplete)
+                    }
+                }
             }
         }
         .navigationTitle("Tasks")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink(destination: Text("This is the add task page")) {
+                NavigationLink(destination: AddTaskPage()) {
                     Image(systemName: "plus")
                         .foregroundStyle(.green)
                 }

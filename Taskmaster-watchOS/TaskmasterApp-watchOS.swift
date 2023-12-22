@@ -2,9 +2,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct TaskmasterApp: App {
-    
-    @StateObject var settings: SettingsStore = SettingsStore()
+struct TaskmasterApp_WatchOS: App {
     
     private func createModelContainer() -> ModelContainer {
         let groupName = "group.io.github.tsgrissom.taskmaster"
@@ -22,8 +20,8 @@ struct TaskmasterApp: App {
             NavigationStack {
                 DisplayTaskListPage()
             }
-            .environmentObject(settings)
         }
         .modelContainer(createModelContainer())
     }
 }
+
