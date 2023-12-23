@@ -15,6 +15,9 @@
 		2F2B823B2B3132170025A56F /* DisplayTaskListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B823A2B3132170025A56F /* DisplayTaskListPage.swift */; };
 		2F34B6F32B36382A002ED58C /* AddTaskPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34B6F22B36382A002ED58C /* AddTaskPage.swift */; };
 		2F34B6F42B363D6D002ED58C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6BD24D2A880BFF0075ACFF /* String.swift */; };
+		2F34B6F72B364D70002ED58C /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34B6F62B364D70002ED58C /* SettingsPage.swift */; };
+		2F34B6F82B364DEC002ED58C /* StringUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1CC662A814E1D00B29F6D /* StringUtilities.swift */; };
+		2F34B6FB2B3659BE002ED58C /* TaskListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34B6FA2B3659BE002ED58C /* TaskListRowView.swift */; };
 		2F3E34EF2A84FDFD00DF2C15 /* TextFieldViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3E34EE2A84FDFD00DF2C15 /* TextFieldViewModifier.swift */; };
 		2F67EC8829ADBF4D00F6E43E /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F67EC8729ADBF4D00F6E43E /* SettingsStore.swift */; };
 		2F6BD24A2A87EC9F0075ACFF /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6BD2492A87EC9F0075ACFF /* TaskItem.swift */; };
@@ -91,6 +94,8 @@
 		2F34B6F02B35F350002ED58C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2F34B6F12B35F45C002ED58C /* Taskmaster-watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Taskmaster-watchOS.entitlements"; sourceTree = "<group>"; };
 		2F34B6F22B36382A002ED58C /* AddTaskPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPage.swift; sourceTree = "<group>"; };
+		2F34B6F62B364D70002ED58C /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		2F34B6FA2B3659BE002ED58C /* TaskListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListRowView.swift; sourceTree = "<group>"; };
 		2F3E34EE2A84FDFD00DF2C15 /* TextFieldViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModifier.swift; sourceTree = "<group>"; };
 		2F67EC8729ADBF4D00F6E43E /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		2F6BD2492A87EC9F0075ACFF /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
@@ -159,10 +164,19 @@
 		2F2B82392B3132000025A56F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2F34B6F22B36382A002ED58C /* AddTaskPage.swift */,
-				2F2B823A2B3132170025A56F /* DisplayTaskListPage.swift */,
+				2F34B6FA2B3659BE002ED58C /* TaskListRowView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2F34B6F92B365997002ED58C /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				2F34B6F22B36382A002ED58C /* AddTaskPage.swift */,
+				2F2B823A2B3132170025A56F /* DisplayTaskListPage.swift */,
+				2F34B6F62B364D70002ED58C /* SettingsPage.swift */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 		2F4E7F5D2B3213EC007A0D7A /* UI */ = {
@@ -213,6 +227,7 @@
 			children = (
 				2F34B6F12B35F45C002ED58C /* Taskmaster-watchOS.entitlements */,
 				2F34B6F02B35F350002ED58C /* Info.plist */,
+				2F34B6F92B365997002ED58C /* Pages */,
 				2F2B82392B3132000025A56F /* Views */,
 				2F839E0C2B3122B100C1FCD9 /* TaskmasterApp-watchOS.swift */,
 				2F839E102B3122B500C1FCD9 /* Assets.xcassets */,
@@ -428,7 +443,10 @@
 			files = (
 				2F839E0D2B3122B100C1FCD9 /* TaskmasterApp-watchOS.swift in Sources */,
 				2F34B6F32B36382A002ED58C /* AddTaskPage.swift in Sources */,
+				2F34B6FB2B3659BE002ED58C /* TaskListRowView.swift in Sources */,
 				2F34B6F42B363D6D002ED58C /* String.swift in Sources */,
+				2F34B6F72B364D70002ED58C /* SettingsPage.swift in Sources */,
+				2F34B6F82B364DEC002ED58C /* StringUtilities.swift in Sources */,
 				2F2B823B2B3132170025A56F /* DisplayTaskListPage.swift in Sources */,
 				2FBE622A2B35E53B00729B48 /* TaskItem.swift in Sources */,
 			);

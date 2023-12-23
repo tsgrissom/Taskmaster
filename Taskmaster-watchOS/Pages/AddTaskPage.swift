@@ -11,16 +11,15 @@ struct AddTaskPage: View {
     private var inputText = ""
     
     var body: some View {
-        ScrollView {
-            VStack {
-                inputTextField
-                HStack {
-                    buttonErase
-                    buttonSubmit
-                }
+        VStack {
+            Spacer()
+            inputTextField
+            HStack {
+                buttonErase
+                buttonSubmit
             }
         }
-        .navigationTitle("New task...")
+        .navigationTitle("New Task")
     }
     
     private var inputTextField: some View {
