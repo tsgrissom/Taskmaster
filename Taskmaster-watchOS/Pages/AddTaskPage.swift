@@ -11,12 +11,14 @@ struct AddTaskPage: View {
     private var inputText = ""
     
     var body: some View {
-        VStack {
-            Spacer()
-            inputTextField
-            HStack {
-                buttonErase
-                buttonSubmit
+        ScrollView {
+            VStack {
+                inputTextField
+                Spacer()
+                HStack {
+                    buttonErase
+                    buttonSubmit
+                }
             }
         }
         .navigationTitle("New Task")
@@ -52,6 +54,7 @@ struct AddTaskPage: View {
             Image(systemName: "checkmark")
         }
         .disabled(inputText.trim().isEmpty)
+        .tint(.green)
     }
 }
 

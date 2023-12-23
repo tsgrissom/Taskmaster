@@ -9,7 +9,16 @@ struct SettingsPage: View {
     @Query
     private var tasks: [TaskItem]
     
-    var body: some View {
+    @State
+    private var showConfirmClearTasksDialog = false
+    
+    private func clearTasks() {
+        for task in tasks {
+            context.delete(task)
+        }
+    }
+    
+    public var body: some View {
         ScrollView {
             VStack {
                 rowTasksCount
@@ -23,13 +32,18 @@ struct SettingsPage: View {
         let count = StringUtilities.createCountString("task", arr: tasks, capitalize: false, overrideEmpty: "tasks")
         return HStack {
             Button("Clear \(count)") {
-                for task in tasks {
-                    context.delete(task)
-                }
+                showConfirmClearTasksDialog = true
             }
+            .confirmationDialog("Delete \(count)?", isPresented: $showConfirmClearTasksDialog, actions: {
+                Button("Confirm") {
+                    clearTasks()
+                }
+                Button(role: .destructive, action: clearTasks) {
+                    Text("Cancel")
+                }
+            })
             .tint(.red)
             .disabled(tasks.count == 0)
-//            .frame(width: 75)
         }
     }
 }
