@@ -239,28 +239,41 @@ extension DisplayTaskItemPage {
     }
     
     private var sectionMetadata: some View {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM dd'th', yyyy 'at' h:mm a"
+        let dateFormatter = DateFormatter()
+        let timeFormatter = DateFormatter()
+//      formatter.dateFormat = "MMMM dd'th', yyyy 'at' h:mm a" // Old
+//      formatter.dateFormat = "MM'/'dd'/'yyyy 'at' h:mm a"    // American
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd"            // International
+        timeFormatter.dateFormat = "'at' h:mm a"
+        
         let createdUnix = task.createdAt
         let updatedUnix = task.updatedAt
         let createdDate = Date(timeIntervalSince1970: createdUnix)
         let updatedDate = Date(timeIntervalSince1970: updatedUnix)
-        let createdFormatted = formatter.string(from: createdDate)
-        let updatedFormatted = formatter.string(from: updatedDate)
+        let createdDateFmt = dateFormatter.string(from: createdDate)
+        let updatedDateFmt = dateFormatter.string(from: updatedDate)
+        let createdTimeFmt = timeFormatter.string(from: createdDate)
+        let updatedTimeFmt = timeFormatter.string(from: updatedDate)
         
         let shouldDisplayUpdated = createdUnix != updatedUnix
         
-        return HStack(spacing: 3) {
+        return HStack(spacing: 2) {
             VStack(alignment: .leading, spacing: 0) {
-                Text("Created at:")
+                Text("Created:")
                 if shouldDisplayUpdated {
-                    Text("Updated at:")
+                    Text("Updated:")
                 }
             }
             VStack(alignment: .leading, spacing: 0) {
-                Text("\(createdFormatted)")
+                Text("\(createdDateFmt)")
                 if shouldDisplayUpdated {
-                    Text("\(updatedFormatted)")
+                    Text("\(updatedDateFmt)")
+                }
+            }
+            VStack(alignment: .leading, spacing: 0) {
+                Text("\(createdTimeFmt)")
+                if shouldDisplayUpdated {
+                    Text("\(updatedTimeFmt)")
                 }
             }
             Spacer()
@@ -478,7 +491,6 @@ extension DisplayTaskItemPage {
                 .rotationEffect(.degrees(buttonDeleteAnimate ? 180 : 0))
         }
         .buttonStyle(.borderless)
-        .fontWeight(.bold)
         .tint(.red)
     }
     
@@ -498,7 +510,7 @@ extension DisplayTaskItemPage {
             onPress()
         }
         .buttonStyle(.borderless)
-        .tint(buttonDuplicateAnimate ? .white : .blue)
+        .tint(buttonDuplicateAnimate ? Color(UIColor.systemBlue) : .blue)
     }
     
     private var buttonEdit: some View {
@@ -516,7 +528,7 @@ extension DisplayTaskItemPage {
             onPress()
         }
         .buttonStyle(.borderless)
-        .tint(buttonEditAnimate ? .white : .blue)
+        .tint(buttonEditAnimate ? Color(UIColor.systemBlue) : .blue)
     }
 }
 
