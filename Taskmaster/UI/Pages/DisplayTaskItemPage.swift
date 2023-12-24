@@ -23,8 +23,6 @@ struct DisplayTaskItemPage: View {
     @State
     private var buttonEditAnimate = false
     @State
-    private var buttonDuplicateAnimate = false
-    @State
     private var buttonDeleteAnimate = false
     @State
     private var buttonResetAnimate = false
@@ -496,21 +494,17 @@ extension DisplayTaskItemPage {
     
     private var buttonDuplicate: some View {
         func onPress() {
-            let model = TaskItem(body: task.body, isComplete: task.isComplete)
+            let duplicate = TaskItem(body: task.body, isComplete: task.isComplete)
+            context.insert(duplicate)
             haptics.notification(.success)
-            buttonDuplicateAnimate = true
-            context.insert(model)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                dismiss()
-            }
+            dismiss()
         }
         
         return Button("Duplicate") {
             onPress()
         }
         .buttonStyle(.borderless)
-        .tint(buttonDuplicateAnimate ? Color(UIColor.systemBlue) : .blue)
+        .tint(.blue)
     }
     
     private var buttonEdit: some View {
