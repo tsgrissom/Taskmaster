@@ -29,15 +29,19 @@ struct ListRow: View {
     
     private func toggleCompletion() {
         task.isComplete.toggle()
+        task.updatedAt = Date().timeIntervalSince1970
         try? context.save()
     }
     
     public var body: some View {
-        HStack {
-            checkbox
-            Text("\(task.body)")
-                .font(.footnote)
+        NavigationLink(destination: DisplayTaskPage(task)) {
+            HStack {
+                checkbox
+                Text("\(task.body)")
+                    .font(.footnote)
+            }
         }
+        .buttonStyle(.plain)
         .confirmationDialog("Task: \(task.body)", isPresented: $showActionSheet, titleVisibility: .hidden, actions: {
             Button(action: delete) {
                 Text("Delete")

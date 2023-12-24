@@ -6,15 +6,14 @@ struct AddTaskPage: View {
     // MARK: Constants
     private let ALERT_BG_COLOR = Color.red
     private let ALERT_FG_COLOR = Color.white
-    private let MIN_LENGTH     = 16
     
     // MARK: Environment Variables
     @Environment(\.colorScheme)
     private var systemColorScheme
+    @Environment(\.dismiss)
+    private var dismiss
     @Environment(\.modelContext)
     private var context
-    @Environment(\.presentationMode)
-    private var presentationMode
     
     @EnvironmentObject
     private var settings: SettingsStore
@@ -50,7 +49,7 @@ struct AddTaskPage: View {
      Specifically, it requires that the trimmed value of the text field's character count exceeds the minimum required task length.
      */
     private var isTextPreparedForSubmission: Bool {
-        inputText.trim().count >= MIN_LENGTH
+        inputText.trim().count >= 4
     }
     
     private var shouldShowTaskPreviewBox: Bool {
@@ -148,7 +147,7 @@ struct AddTaskPage: View {
         
         // Short delay to visually display animation before transitioning back to list
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            presentationMode.wrappedValue.dismiss()
+            dismiss.callAsFunction()
         }
     }
     
@@ -157,8 +156,8 @@ struct AddTaskPage: View {
      UX button modifications which are undone shortly after.
      */
     private func feedbackUnprepared() {
-        let tooShort = "Tasks must be at least \(MIN_LENGTH) characters in length 📏"
-        let tooShort2 = "Task is too short. Please enter at least \(MIN_LENGTH) characters."
+        let tooShort = "Tasks must be at least 4 characters in length 📏"
+        let tooShort2 = "Task is too short. Please enter at least 4 characters."
         btnSaveAnimated = 1
         
         flashAlert(text: alertVisible ? tooShort2 : tooShort)
@@ -171,73 +170,6 @@ struct AddTaskPage: View {
         // 3s later, restore the button's color & symbol
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             btnSaveAnimated = 0
-        }
-    }
-    
-    /**
-     Triggered when the save button is pressed. Verifies that the text value is prepared, and if so
-     plays out a few button effects, adds the new task to the view model, and then dismisses the
-     presentation.
-     */
-    private func onSaveButtonPress() {
-        // If save is clicked, but less than 3 characters are in the text field
-        guard isTextPreparedForSubmission else {
-            feedbackUnprepared()
-            return
-        }
-        
-        // Otherwise, text is ready and the save can proceed
-        
-        if isInputFocused {
-            isInputFocused = false
-        }
-        
-        btnSaveAnimated = 2
-        haptics.notification()
-        
-        addAndReturn()
-    }
-    
-    /**
-     Triggered when the clear button is pressed. Checks to ensure the text value is not empty.
-     If there is nothing to clear, it plays out one set of effects. If it has value, an alert is
-     displayed alongside several effects such as haptics and button animations. The text field is
-     cleared and shortly after the button effects are reset.
-     */
-    private func onClearButtonPress() {
-        func feedbackShake() {
-            haptics.notification(.warning)
-            btnClearAnimated = 1
-        }
-        
-        func feedbackSuccess() {
-            btnClearAnimated = 2
-        }
-        
-        func resetButtonEffects() {
-            btnClearAnimated = 0
-            btnSaveAnimated  = 0
-        }
-        
-        // Capture future btn result, which is an inversion of if the str is empty
-        let success = !inputText.isEmpty
-        
-        guard success else {
-            feedbackShake()
-            return
-        }
-        
-        inputText = ""
-        haptics.notification()
-        flashAlert(
-            text: "Text field cleared",
-            duration: 2.0
-        )
-        feedbackSuccess()
-        
-        // Reset btn attributes w/ animation after 1s
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            resetButtonEffects()
         }
     }
     
@@ -319,36 +251,83 @@ extension AddTaskPage {
     }
     
     private var buttonClear: some View {
-        let symbol = btnClearAnimated == 1 ? "xmark" : "eraser.fill"
-        let danger:   Color = .danger
-        let disabled: Color = .gray.opacity(0.45)
-        let bgColor = switch (btnClearAnimated) {
-        case 1:
-            danger
-        case 2:
-            Color.green
-        default:
-            !inputText.isEmpty ? danger : disabled
+        func onPress() {
+            func feedbackShake() {
+                haptics.notification(.warning)
+                btnClearAnimated = 1
+            }
+            
+            func feedbackSuccess() {
+                btnClearAnimated = 2
+            }
+            
+            func resetButtonEffects() {
+                btnClearAnimated = 0
+                btnSaveAnimated  = 0
+            }
+            
+            // Capture future btn result, which is an inversion of if the str is empty
+            let success = !inputText.isEmpty
+            
+            guard success else {
+                feedbackShake()
+                return
+            }
+            
+            inputText = ""
+            haptics.notification()
+            flashAlert(
+                text: "Text field cleared",
+                duration: 2.0
+            )
+            feedbackSuccess()
+            
+            // Reset btn attributes w/ animation after 1s
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                resetButtonEffects()
+            }
         }
         
-        return Button(action: onClearButtonPress) {
+        let symbol  = btnClearAnimated==1 ? "xmark" : "eraser.fill"
+        let bgColor = btnClearAnimated==2 ? Color.green : Color.danger
+        
+        return Button(action: onPress) {
             Image(systemName: symbol)
-                .modifier(ControlRowButtonViewModifier())
-                .background(bgColor)
-                .cornerRadius(10)
+                .imageScale(.large)
+                .frame(width: 125, height: 30)
         }
+        .buttonStyle(.borderedProminent)
+        .tint(bgColor)
+        .disabled(inputText.isEmpty)
     }
     
     private var buttonSave: some View {
-        let prepared: Color = .accentColor
-        let disabled: Color = .gray.opacity(0.45)
-        let bgColor:  Color = switch(btnSaveAnimated) {
+        func onPress() {
+            // If save is clicked, but less than 3 characters are in the text field
+            guard isTextPreparedForSubmission else {
+                feedbackUnprepared()
+                return
+            }
+            
+            // Otherwise, text is ready and the save can proceed
+            
+            if isInputFocused {
+                isInputFocused = false
+            }
+            
+            btnSaveAnimated = 2
+            haptics.notification()
+            
+            addAndReturn()
+        }
+        
+        let bgColor = switch(btnSaveAnimated) {
         case 1:
-            .danger
+            Color.danger
         case 2:
-            .green
+            Color.green
         default:
-            isTextPreparedForSubmission ? prepared : disabled
+            Color.accentColor
         }
         let symbol = switch (btnSaveAnimated) {
         case 1:
@@ -359,19 +338,19 @@ extension AddTaskPage {
             "checkmark"
         }
         
-        return Button(action: onSaveButtonPress) {
+        return Button(action: onPress) {
             Image(systemName: symbol)
-                .modifier(ControlRowButtonViewModifier())
-                .background(bgColor)
-                .cornerRadius(10)
+                .imageScale(.large)
+                .frame(width: 125, height: 30)
         }
+        .buttonStyle(.borderedProminent)
+        .tint(bgColor)
+        .disabled(!isTextPreparedForSubmission)
     }
     
     private var rowControlButtons: some View {
-        HStack(alignment: .center) {
+        HStack {
             buttonSave
-            Spacer()
-                .frame(maxWidth: 8)
             buttonClear
         }
         .padding(.top, 2)

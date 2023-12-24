@@ -111,6 +111,7 @@ struct DisplayTaskListPage: View {
     private func onSwipeLeadingEdge(_ task: TaskItem) -> some View {
         Button(task.isComplete ? "Undo Complete" : "Complete") {
             task.isComplete.toggle()
+            task.updatedAt = Date().timeIntervalSince1970
             try? context.save()
         }
         .tint(task.isComplete ? .red : .green)
@@ -323,6 +324,7 @@ private struct ListRow: View {
             checkbox
                 .onTapGesture {
                     task.isComplete.toggle()
+                    task.updatedAt = Date().timeIntervalSince1970
                     try? context.save()
                     haptics.impact(.medium)
                 }

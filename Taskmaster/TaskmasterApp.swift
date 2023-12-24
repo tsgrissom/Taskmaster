@@ -17,7 +17,7 @@ struct TaskmasterApp: App {
         return try! ModelContainer(for: TaskItem.self, configurations: modelConf)
     }
     
-    var body: some Scene {
+    public var body: some Scene {
         WindowGroup {
             NavigationStack {
                 DisplayTaskListPage()

@@ -100,6 +100,10 @@ struct DisplayTaskItemPage: View {
         let controlRowHzPad = 58.0
         ScrollView {
             VStack(spacing: 0) {
+                sectionMetadata
+                    .padding(.horizontal, controlRowHzPad)
+                    .padding(.bottom, 15)
+                
                 ZStack {
                     layerContainerBackground
                     layerContainerForeground
@@ -143,7 +147,7 @@ struct DisplayTaskItemPage: View {
                 rowDisplayTaskBody
                     .frame(width: .infinity)
                     .padding(.horizontal, 35)
-                    .padding(.vertical, 10)
+                    .padding(.vertical, 8)
                     .onTapGesture {
                         startEditing()
                     }
@@ -154,11 +158,11 @@ struct DisplayTaskItemPage: View {
             }
             
             rowCompletionIndicator
-                .font(.system(size: 22))
                 .foregroundStyle(foregroundColor)
                 .padding(.horizontal, 36)
                 .onTapGesture {
                     task.isComplete.toggle()
+                    task.updatedAt = Date().timeIntervalSince1970
                     try? context.save()
                     haptics.impact(.medium)
                 }
@@ -206,6 +210,7 @@ struct DisplayTaskItemPage: View {
      */
     private func saveEditing() {
         task.body = inputText
+        task.updatedAt = Date().timeIntervalSince1970
         try? context.save()
         
         stopEditing()
@@ -231,6 +236,36 @@ extension DisplayTaskItemPage {
                 .fontWeight(.regular)
             Spacer()
         }
+    }
+    
+    private var sectionMetadata: some View {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM dd'th', yyyy 'at' h:mm a"
+        let createdUnix = task.createdAt
+        let updatedUnix = task.updatedAt
+        let createdDate = Date(timeIntervalSince1970: createdUnix)
+        let updatedDate = Date(timeIntervalSince1970: updatedUnix)
+        let createdFormatted = formatter.string(from: createdDate)
+        let updatedFormatted = formatter.string(from: updatedDate)
+        
+        let shouldDisplayUpdated = createdUnix != updatedUnix
+        
+        return HStack(spacing: 3) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("Created at:")
+                if shouldDisplayUpdated {
+                    Text("Updated at:")
+                }
+            }
+            VStack(alignment: .leading, spacing: 0) {
+                Text("\(createdFormatted)")
+                if shouldDisplayUpdated {
+                    Text("\(updatedFormatted)")
+                }
+            }
+            Spacer()
+        }
+        .font(.caption)
     }
     
     /**
