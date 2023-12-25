@@ -2,6 +2,7 @@ import SwiftUI
 
 struct TaskPreviewBox: View {
 
+    // MARK: Initialization
     private let isTextPrepared: Bool
     private let text: String
     
@@ -10,6 +11,7 @@ struct TaskPreviewBox: View {
         self.text = text
     }
     
+    // MARK: Layout Declaration
     public var body: some View {
         ZStack {
             layerBackground
@@ -23,6 +25,7 @@ struct TaskPreviewBox: View {
 
 extension TaskPreviewBox {
     
+    // MARK: Layer Views
     private var layerBackground: some View {
         RoundedRectangle(cornerRadius: 25)
             .fill(.ultraThinMaterial)
@@ -37,6 +40,7 @@ extension TaskPreviewBox {
         }
     }
     
+    // MARK: Row Views
     private var rowHeader: some View {
         let title = Text("Task Preview:")
         let symbolColor: Color = isTextPrepared ? .green : .red
@@ -76,6 +80,7 @@ extension TaskPreviewBox {
     }
 }
 
+// MARK: Previews
 #Preview {
     VStack {
         TaskPreviewBox(isTextPrepared: true, text: "Lorem ipsum dolor")
