@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F09B4542A84A0D3009524D2 /* ControlRowButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F09B4532A84A0D3009524D2 /* ControlRowButtonViewModifier.swift */; };
 		2F1EC9FA2A7EADB3006B5FC0 /* DisplayTaskItemPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1EC9F92A7EADB3006B5FC0 /* DisplayTaskItemPage.swift */; };
 		2F1EC9FD2A7EADF4006B5FC0 /* MockupUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1EC9FC2A7EADF4006B5FC0 /* MockupUtilities.swift */; };
 		2F1EC9FF2A7EBE31006B5FC0 /* DeviceUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1EC9FE2A7EBE31006B5FC0 /* DeviceUtilities.swift */; };
@@ -87,7 +86,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2F09B4532A84A0D3009524D2 /* ControlRowButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlRowButtonViewModifier.swift; sourceTree = "<group>"; };
 		2F1EC9F92A7EADB3006B5FC0 /* DisplayTaskItemPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskItemPage.swift; sourceTree = "<group>"; };
 		2F1EC9FC2A7EADF4006B5FC0 /* MockupUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupUtilities.swift; sourceTree = "<group>"; };
 		2F1EC9FE2A7EBE31006B5FC0 /* DeviceUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtilities.swift; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 		2F4E7F602B321404007A0D7A /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
-				2F09B4532A84A0D3009524D2 /* ControlRowButtonViewModifier.swift */,
 				2FD24C6F2A81BD68009FF6F4 /* HapticOnTapViewModifier.swift */,
 				2FD24C712A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift */,
 				2F3E34EE2A84FDFD00DF2C15 /* TextFieldViewModifier.swift */,
@@ -482,7 +479,6 @@
 				2F9C135B29AF992E0070413E /* Color.swift in Sources */,
 				2FD1CC632A81323200B29F6D /* QuickAddTaskButton.swift in Sources */,
 				2F89C3CC2973362B0053DB22 /* SettingsPage.swift in Sources */,
-				2F09B4542A84A0D3009524D2 /* ControlRowButtonViewModifier.swift in Sources */,
 				2F1EC9FF2A7EBE31006B5FC0 /* DeviceUtilities.swift in Sources */,
 				2FD1CC672A814E1D00B29F6D /* StringUtilities.swift in Sources */,
 				2F9AD7B3296E1C510092FFFB /* TaskmasterApp.swift in Sources */,
