@@ -27,23 +27,32 @@ struct DisplayTaskListPage: View {
     }
     
     private var navigationTitle: String {
-        StringUtilities.createCountString("Task", arr: tasks, capitalize: true, pluralize: true, overrideEmpty: "Taskmaster")
+        StringUtilities.createCountString(
+            "Task",
+            arr: tasks,
+            capitalize: true,
+            pluralize: true,
+            overrideEmpty: "Taskmaster"
+        )
     }
     
     private var leadingNavButton: some View {
-        NavigationLink(destination: SettingsPage()) {
+        let mod = ImpactOnTapViewModifier(playOut: shouldUseHaptics, .light)
+        return NavigationLink(destination: SettingsPage()) {
             Image(systemName: "gear")
         }
-        .modifier(ImpactOnTapViewModifier(playOut: shouldUseHaptics, .light))
+        .modifier(mod)
     }
     
     @ViewBuilder
     private var trailingNavButton: some View {
+        let mod = ImpactOnTapViewModifier(playOut: shouldUseHaptics, .light)
         if tasks.isEmpty {
             EmptyView()
         } else {
             EditButton()
                 .foregroundStyle(Color.accentColor)
+                .modifier(ImpactOnTapViewModifier(playOut: shouldUseHaptics, .light))
         }
     }
     
