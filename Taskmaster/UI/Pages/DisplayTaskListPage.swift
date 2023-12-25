@@ -168,14 +168,13 @@ struct DisplayTaskListPage: View {
      Offers a share sheet for the respective list item.
      */
     private func contextMenuButtonShare(_ task: TaskItem) -> some View {
-        func onPress() {
-            // TODO Offer a share sheet for the provided ItemModel
-            haptics.impact(.medium)
-        }
+        let subject = task.isComplete ? "Completed Task" : "Incomplete Task"
         
-        return Button(action: onPress) {
-            Label("Share", systemImage: "square.and.arrow.up")
-        }
+        return ShareLink(
+            item: task.body,
+            subject: Text(subject),
+            message: Text(task.body)
+        )
     }
     
     /**
