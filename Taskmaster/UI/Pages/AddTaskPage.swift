@@ -137,39 +137,12 @@ struct AddTaskPage: View {
      is played out.
      */
     private func addAndReturn(after delay: CGFloat = 0.4) {
-        guard isTextPreparedForSubmission else {
-            feedbackUnprepared()
-            return
-        }
-        
         let newTask = TaskItem(body: inputText.trim())
         context.insert(newTask)
         
         // Short delay to visually display animation before transitioning back to list
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             dismiss.callAsFunction()
-        }
-    }
-    
-    /**
-     Flashes an alert informing the user that their input is too short. This coincides with a few
-     UX button modifications which are undone shortly after.
-     */
-    private func feedbackUnprepared() {
-        let tooShort = "Tasks must be at least 4 characters in length 📏"
-        let tooShort2 = "Task is too short. Please enter at least 4 characters."
-        btnSaveAnimated = 1
-        
-        flashAlert(text: alertVisible ? tooShort2 : tooShort)
-        haptics.notification(.warning)
-        
-        if !isInputFocused {
-            isInputFocused = true
-        }
-        
-        // 3s later, restore the button's color & symbol
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            btnSaveAnimated = 0
         }
     }
     
@@ -305,7 +278,21 @@ extension AddTaskPage {
         func onPress() {
             // If save is clicked, but less than 3 characters are in the text field
             guard isTextPreparedForSubmission else {
-                feedbackUnprepared()
+                let tooShort = "Tasks must be at least 4 characters in length 📏"
+                let tooShort2 = "Task is too short. Please enter at least 4 characters."
+                btnSaveAnimated = 1
+                
+                flashAlert(text: alertVisible ? tooShort2 : tooShort)
+                haptics.notification(.warning)
+                
+                if !isInputFocused {
+                    isInputFocused = true
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    btnSaveAnimated = 0
+                }
+                
                 return
             }
             
@@ -318,7 +305,7 @@ extension AddTaskPage {
             btnSaveAnimated = 2
             haptics.notification()
             
-            addAndReturn()
+            addAndReturn(after: 0.2)
         }
         
         let bgColor = switch(btnSaveAnimated) {
@@ -329,14 +316,7 @@ extension AddTaskPage {
         default:
             Color.accentColor
         }
-        let symbol = switch (btnSaveAnimated) {
-        case 1:
-            "xmark"
-        case 2:
-            "square.and.arrow.down"
-        default:
-            "checkmark"
-        }
+        let symbol = btnSaveAnimated==1 ? "xmark" : "checkmark"
         
         return Button(action: onPress) {
             Image(systemName: symbol)

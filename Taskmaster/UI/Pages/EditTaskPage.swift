@@ -353,14 +353,7 @@ extension EditTaskPage {
             updateAndReturn()
         }
         
-        let symbol = switch (animateSaveButton) {
-        case 1:
-            "xmark"
-        case 2:
-            "square.and.arrow.down"
-        default:
-            "checkmark"
-        }
+        let symbol = animateSaveButton==1 ? "xmark" : "checkmark"
         let bgColor: Color = switch (animateSaveButton) {
         case 1:
             Color.danger

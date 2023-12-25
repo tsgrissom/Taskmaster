@@ -13,10 +13,17 @@ struct DisplayTaskItemPage: View {
     @EnvironmentObject
     private var settings: SettingsStore
     
-    // MARK: Constants
-    private let MIN_LENGTH = 16
+    // MARK: Initialization
     private let completedColor: Color
     private let task: TaskItem
+    
+    init(
+        task: TaskItem,
+        completedColor: Color = .accentColor
+    ) {
+        self.task = task
+        self.completedColor = completedColor
+    }
     
     // MARK: Stateful Variables
     // Buttons
@@ -81,15 +88,6 @@ struct DisplayTaskItemPage: View {
     
     private var isTaskBodyEdited: Bool {
         return inputText != task.body && isInputFocused
-    }
-    
-    // MARK: Initialization
-    init(
-        task: TaskItem,
-        completedColor: Color = .accentColor
-    ) {
-        self.task = task
-        self.completedColor = completedColor
     }
     
     // MARK: Layout Declaration
@@ -157,7 +155,7 @@ struct DisplayTaskItemPage: View {
             
             rowCompletionIndicator
                 .foregroundStyle(foregroundColor)
-                .padding(.horizontal, 36)
+                .padding(.horizontal, 35)
                 .onTapGesture {
                     task.isComplete.toggle()
                     task.updatedAt = Date().timeIntervalSince1970
@@ -350,7 +348,7 @@ extension DisplayTaskItemPage {
     private var rowCompletionIndicator: some View {
         let text: String = task.isComplete ? "Completed" : "Incomplete"
         
-        var symbolView: some View {
+        var indicator: some View {
             TaskCompletionIndicator(
                 isComplete: task.isComplete,
                 symbolColor: foregroundColor,
@@ -360,23 +358,18 @@ extension DisplayTaskItemPage {
             )
         }
         
-        var textView: some View {
+        return HStack(spacing: 3) {
+            indicator
             VStack {
                 Spacer()
                     .frame(maxHeight: 4)
                 Text(text)
             }
-        }
-        
-        return HStack(spacing: 3) {
-            symbolView
-                .fontWeight(.light)
-            textView
-                .font(.system(size: 20))
-                .fontWeight(.regular)
-                .offset(y: 0.5)
+            .offset(y: -2)
             Spacer()
         }
+        .font(.headline)
+        .fontWeight(.light)
     }
     
     /**
@@ -423,7 +416,7 @@ extension DisplayTaskItemPage {
     
     private var buttonSave: some View {
         func onPress() {
-            if inputText.trim().count < MIN_LENGTH {
+            if inputText.trim().count < 4 {
                 buttonSaveAnimate = 1
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     buttonSaveAnimate = 0
