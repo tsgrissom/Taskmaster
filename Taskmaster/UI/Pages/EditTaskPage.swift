@@ -13,8 +13,8 @@ struct EditTaskPage: View {
     private var settings: SettingsStore
     
     // MARK: Constants
-    private let ALERT_BG_COLOR = Color.red
-    private let ALERT_FG_COLOR = Color.white
+    private let ALERT_COLOR_BG: Color = .red
+    private let ALERT_COLOR_FG: Color = .white
     
     private let task: TaskItem
     private let originalText: String
@@ -208,21 +208,33 @@ extension EditTaskPage {
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     HStack {
+                        // Leading Keyboard Toolbar Items
                         Button(action: {
                             inputText = ""
                         }) {
                             Image(systemName: "eraser")
                         }
                         .disabled(inputText.isEmpty)
-                        
                         Button(action: {
                             inputText = originalText
                         }) {
                             Image(systemName: "arrow.counterclockwise")
                         }
+                        Button(action: {
+                            updateAndReturn()
+                        }) {
+                            Image(systemName: "checkmark")
+                        }
+                
+                        Button(action: {
+                            inputText = originalText
+                        }) {
+                            Image(systemName: "arrow.counterclockwise")
+                        }
+                        .disabled(inputText == originalText)
                         
+                        // Trailing Keyboard Toolbar Items
                         Spacer()
-                        
                         Button(action: {
                             isInputFocused.toggle()
                         }) {
@@ -232,144 +244,6 @@ extension EditTaskPage {
                     .tint(Color.gray)
                 }
             }
-    }
-    
-    private var buttonClear: some View {
-        func onPress() {
-            func feedbackEmpty() {
-                haptics.notification(.warning)
-                animateClearButton = 1
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                    animateClearButton = 0
-                }
-            }
-            
-            guard !inputText.trim().isEmpty else {
-                feedbackEmpty()
-                return
-            }
-            
-            // Otherwise, text field is not empty, clear it, play fx
-            
-            inputText = ""
-            
-            animateClearButton = 2
-            haptics.notification()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                animateClearButton = 0
-            }
-        }
-        
-        let bgColor = animateClearButton==2 ? Color.green : Color.danger
-        let symbol  = animateClearButton==1 ? "xmark" : "eraser.fill"
-        
-        return Button(action: onPress) {
-            Image(systemName: symbol)
-                .imageScale(.large)
-                .frame(width: 125, height: 30)
-        }
-        .buttonStyle(.bordered)
-        .tint(bgColor)
-    }
-    
-    private var buttonRestore: some View {
-        func onPress() {
-            if inputText.trim() == originalText {
-                haptics.notification(.warning)
-                animateRestoreButton = 1
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                    animateRestoreButton = 0
-                }
-                return
-            }
-            
-            haptics.notification()
-            animateRestoreButton = 2
-            inputText = originalText
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                animateRestoreButton = 0
-            }
-        }
-        
-        let symbol = switch (animateRestoreButton) {
-        case 1:
-            "xmark"
-        case 2:
-            "checkmark"
-        default:
-            "square.on.square"
-        }
-        
-        return Button {
-            onPress()
-        } label: {
-            Label("Restore original text", systemImage: symbol)
-        }
-        .buttonStyle(.bordered)
-        .tint(.yellow)
-        .disabled(inputText.isNotEmpty && inputText.trim() == originalText)
-        .symbolEffect(.bounce, value: animateRestoreButton)
-    }
-    
-    private var buttonSave: some View {
-        func onPress() {
-            func feedbackTooShort() {
-                let tooShortText = "Tasks must be at least 4 characters in length 📏"
-                let tooShortText2 = "Task is too short. Please enter at least 4 characters."
-                
-                animateSaveButton = 1
-                haptics.notification(.warning)
-                
-                flashAlert(text: alertVisible ? tooShortText2 : tooShortText)
-                // Provide second text for UX if the user tap-spams
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    animateSaveButton = 0
-                }
-            }
-            
-            func feedbackIdentical() {
-                animateSaveButton = 2
-                haptics.notification(.success)
-                dismiss.callAsFunction()
-            }
-            
-            guard isTextPreparedForSubmission else {
-                feedbackTooShort()
-                return
-            }
-            
-            guard !isTextIdenticalToOriginal else {
-                feedbackIdentical()
-                return
-            }
-            
-            animateSaveButton = 2
-            haptics.notification()
-            
-            updateAndReturn()
-        }
-        
-        let symbol = animateSaveButton==1 ? "xmark" : "checkmark"
-        let bgColor: Color = switch (animateSaveButton) {
-        case 1:
-            Color.danger
-        case 2:
-            Color.green
-        default:
-            Color.accentColor
-        }
-        
-        return Button(action: onPress) {
-            Image(systemName: symbol)
-                .imageScale(.large)
-                .frame(width: 125, height: 30)
-        }
-        .buttonStyle(.bordered)
-        .tint(bgColor)
     }
     
     private var sectionControlButtons: some View {
@@ -397,12 +271,12 @@ extension EditTaskPage {
         HStack {
             Text(alertText)
                 .padding(15)
-                .foregroundColor(ALERT_FG_COLOR)
+                .foregroundColor(ALERT_COLOR_FG)
         }
         .frame(minWidth: modifiedFrameWidth)
-        .background(ALERT_BG_COLOR)
+        .background(ALERT_COLOR_BG)
         .cornerRadius(15)
-        .foregroundStyle(ALERT_FG_COLOR)
+        .foregroundStyle(ALERT_COLOR_FG)
         .padding(.top, 10)
         .transition(.move(edge: .leading))
         .onTapGesture {
@@ -410,6 +284,142 @@ extension EditTaskPage {
                 alertVisible = false
             }
         }
+    }
+    
+    private func onButtonClearPress() {
+        func feedbackEmpty() {
+            haptics.notification(.warning)
+            animateClearButton = 1
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                animateClearButton = 0
+            }
+        }
+        
+        guard !inputText.trim().isEmpty else {
+            feedbackEmpty()
+            return
+        }
+        
+        // Otherwise, text field is not empty, clear it, play fx
+        
+        inputText = ""
+        
+        animateClearButton = 2
+        haptics.notification()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            animateClearButton = 0
+        }
+    }
+    
+    private var buttonClear: some View {
+        let bgColor = animateClearButton==2 ? Color.green : Color.danger
+        let symbol  = animateClearButton==1 ? "xmark" : "eraser.fill"
+        
+        return Button(action: onButtonClearPress) {
+            Image(systemName: symbol)
+                .imageScale(.large)
+                .frame(width: 125, height: 30)
+        }
+        .buttonStyle(.bordered)
+        .tint(bgColor)
+    }
+    
+    private func onButtonRestorePress() {
+        if inputText.trim() == originalText {
+            haptics.notification(.warning)
+            animateRestoreButton = 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                animateRestoreButton = 0
+            }
+            return
+        }
+        
+        haptics.notification()
+        animateRestoreButton = 2
+        inputText = originalText
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            animateRestoreButton = 0
+        }
+    }
+    
+    private var buttonRestore: some View {
+        let symbol = switch (animateRestoreButton) {
+        case 1:
+            "xmark"
+        case 2:
+            "checkmark"
+        default:
+            "square.on.square"
+        }
+        
+        return Button(action: onButtonRestorePress) {
+            Label("Restore original text", systemImage: symbol)
+        }
+        .buttonStyle(.bordered)
+        .tint(.yellow)
+        .disabled(inputText.isNotEmpty && inputText.trim() == originalText)
+        .symbolEffect(.bounce, value: animateRestoreButton)
+    }
+    
+    private func onButtonSavePress() {
+        func feedbackTooShort() {
+            let tooShortText = "Tasks must be at least 4 characters in length 📏"
+            let tooShortText2 = "Task is too short. Please enter at least 4 characters."
+            
+            animateSaveButton = 1
+            haptics.notification(.warning)
+            
+            flashAlert(text: alertVisible ? tooShortText2 : tooShortText)
+            // Provide second text for UX if the user tap-spams
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                animateSaveButton = 0
+            }
+        }
+        
+        func feedbackIdentical() {
+            animateSaveButton = 2
+            haptics.notification(.success)
+            dismiss.callAsFunction()
+        }
+        
+        guard isTextPreparedForSubmission else {
+            feedbackTooShort()
+            return
+        }
+        
+        guard !isTextIdenticalToOriginal else {
+            feedbackIdentical()
+            return
+        }
+        
+        animateSaveButton = 2
+        haptics.notification()
+        
+        updateAndReturn()
+    }
+    
+    private var buttonSave: some View {
+        let symbol = animateSaveButton==1 ? "xmark" : "checkmark"
+        let bgColor: Color = switch (animateSaveButton) {
+        case 1:
+            Color.danger
+        case 2:
+            Color.green
+        default:
+            Color.accentColor
+        }
+        
+        return Button(action: onButtonSavePress) {
+            Image(systemName: symbol)
+                .imageScale(.large)
+                .frame(width: 125, height: 30)
+        }
+        .buttonStyle(.bordered)
+        .tint(bgColor)
     }
 }
 

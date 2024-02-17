@@ -53,34 +53,38 @@ extension SettingsPage {
     private var appearanceSection: some View {
         Section("App Appearance") {
             Picker("Background", selection: $settings.themeBg) {
-                Text("System").tag(ThemeBackground.system)
-                Text("Dark").tag(ThemeBackground.dark)
-                Text("Light").tag(ThemeBackground.light)
+                Text("System").tag(ThemeBackgroundOption.system)
+                Text("Dark").tag(ThemeBackgroundOption.dark)
+                Text("Light").tag(ThemeBackgroundOption.light)
             }
             Picker("Accent", selection: $settings.themeAccent) {
-                Text("Default (Purple)").tag(ThemeAccent.purple)
-                Text("iOS (Blue)").tag(ThemeAccent.blue)
+                Text("Default (Purple)").tag(ThemeAccentOption.purple)
+                Text("iOS (Blue)").tag(ThemeAccentOption.blue)
             }
             Picker("Indicator Frame", selection: $settings.indicatorFrame) {
-                Text("App Shaped").tag(CompletionIndicatorFrame.app)
-                Text("Circular").tag(CompletionIndicatorFrame.circle)
-                Text("Diamond").tag(CompletionIndicatorFrame.diamond)
-                Text("Round Square").tag(CompletionIndicatorFrame.roundsquare)
-                Text("Square").tag(CompletionIndicatorFrame.square)
+                Text("App Shaped").tag(CompletionIndicatorFrameOption.app)
+                Text("Circular").tag(CompletionIndicatorFrameOption.circle)
+                Text("Diamond").tag(CompletionIndicatorFrameOption.diamond)
+                Text("Round Square").tag(CompletionIndicatorFrameOption.roundsquare)
+                Text("Square").tag(CompletionIndicatorFrameOption.square)
             }
             Picker("Indicator Mark", selection: $settings.indicatorSymbol) {
-                Text("Asterisk").tag(CompletionIndicatorSymbol.asterisk)
-                Text("Checkmark").tag(CompletionIndicatorSymbol.checkmark)
-                Text("Scribble").tag(CompletionIndicatorSymbol.scribble)
-                Text("X-Mark").tag(CompletionIndicatorSymbol.xmark)
+                Text("Asterisk").tag(CompletionIndicatorSymbolOption.asterisk)
+                Text("Checkmark").tag(CompletionIndicatorSymbolOption.checkmark)
+                Text("Scribble").tag(CompletionIndicatorSymbolOption.scribble)
+                Text("X-Mark").tag(CompletionIndicatorSymbolOption.xmark)
             }
             Toggle(isOn: $settings.shouldFillIndicator) {
                 Text("Indicator Fill on Complete")
             }
             Picker("Quick Add Button Style", selection: $settings.quickAddButtonStyle) {
-                Text("Large").tag(QuickAddButtonStyle.large)
-                Text("Small").tag(QuickAddButtonStyle.small)
-                Text("Material").tag(QuickAddButtonStyle.material)
+                Text("Large").tag(QuickAddButtonStyleOption.large)
+                Text("Small").tag(QuickAddButtonStyleOption.small)
+                Text("Material").tag(QuickAddButtonStyleOption.material)
+            }
+            Picker("Date Format Style", selection: $settings.dateFormat) {
+                Text("American").tag(DateFormatOption.american)
+                Text("International").tag(DateFormatOption.international)
             }
         }
     }

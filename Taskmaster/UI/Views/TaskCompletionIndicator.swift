@@ -12,15 +12,15 @@ struct TaskCompletionIndicator: View {
     private let isComplete: Bool
     private let symbolColor: Color
     private let fillCompleted: Bool
-    private let frame: CompletionIndicatorFrame
-    private let indicator: CompletionIndicatorSymbol
+    private let frame: CompletionIndicatorFrameOption
+    private let indicator: CompletionIndicatorSymbolOption
     
     init(
         isComplete: Bool = false,
         symbolColor: Color = .accentColor,
         fillCompleted: Bool = false,
-        frame: CompletionIndicatorFrame = .roundsquare,
-        indicator: CompletionIndicatorSymbol = .checkmark
+        frame: CompletionIndicatorFrameOption = .roundsquare,
+        indicator: CompletionIndicatorSymbolOption = .checkmark
     ) {
         self.isComplete = isComplete
         self.symbolColor = symbolColor

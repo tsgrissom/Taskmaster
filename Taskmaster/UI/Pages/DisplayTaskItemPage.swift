@@ -235,11 +235,8 @@ extension DisplayTaskItemPage {
     }
     
     private var sectionMetadata: some View {
-        let dateFormatter = DateFormatter()
+        let dateFormatter = settings.dateFormat.getFormat()
         let timeFormatter = DateFormatter()
-//      formatter.dateFormat = "MMMM dd'th', yyyy 'at' h:mm a" // Old
-//      formatter.dateFormat = "MM'/'dd'/'yyyy 'at' h:mm a"    // American
-        dateFormatter.dateFormat = "yyyy'-'MM'-'dd"            // International
         timeFormatter.dateFormat = "'at' h:mm a"
         
         let createdUnix = task.createdAt

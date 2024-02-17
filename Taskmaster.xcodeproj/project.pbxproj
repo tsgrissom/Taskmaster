@@ -38,16 +38,17 @@
 		2F9AD7C6296E1D650092FFFB /* DisplayTaskListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AD7C5296E1D650092FFFB /* DisplayTaskListPage.swift */; };
 		2F9AD7CA296E21080092FFFB /* AddTaskPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AD7C9296E21080092FFFB /* AddTaskPage.swift */; };
 		2F9C135B29AF992E0070413E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C135A29AF992E0070413E /* Color.swift */; };
+		2FB4A98F2B806AA80021C87F /* DateFormatOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4A98E2B806AA80021C87F /* DateFormatOption.swift */; };
 		2FBE622A2B35E53B00729B48 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6BD2492A87EC9F0075ACFF /* TaskItem.swift */; };
 		2FBE62302B35E93100729B48 /* SwiftData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBE622F2B35E93100729B48 /* SwiftData.framework */; };
 		2FBE62322B35E93B00729B48 /* SwiftData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBE62312B35E93B00729B48 /* SwiftData.framework */; };
-		2FC3F9CE29AF0FAC0078DFC4 /* ThemeEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC3F9CD29AF0FAC0078DFC4 /* ThemeEnums.swift */; };
+		2FC3F9CE29AF0FAC0078DFC4 /* ThemeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC3F9CD29AF0FAC0078DFC4 /* ThemeOptions.swift */; };
 		2FD1CC632A81323200B29F6D /* QuickAddTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1CC622A81323200B29F6D /* QuickAddTaskButton.swift */; };
-		2FD1CC652A813D1B00B29F6D /* ListEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1CC642A813D1B00B29F6D /* ListEnums.swift */; };
+		2FD1CC652A813D1B00B29F6D /* ListStyleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1CC642A813D1B00B29F6D /* ListStyleOptions.swift */; };
 		2FD1CC672A814E1D00B29F6D /* StringUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1CC662A814E1D00B29F6D /* StringUtilities.swift */; };
 		2FD24C702A81BD68009FF6F4 /* HapticOnTapViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD24C6F2A81BD68009FF6F4 /* HapticOnTapViewModifier.swift */; };
 		2FD24C722A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD24C712A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift */; };
-		2FF5C0712A8059810059F348 /* IndicatorEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5C0702A8059810059F348 /* IndicatorEnums.swift */; };
+		2FF5C0712A8059810059F348 /* CompletionIndicatorOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5C0702A8059810059F348 /* CompletionIndicatorOptions.swift */; };
 		2FF5C0742A805AFA0059F348 /* TaskCompletionIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5C0732A805AFA0059F348 /* TaskCompletionIndicator.swift */; };
 /* End PBXBuildFile section */
 
@@ -118,16 +119,17 @@
 		2F9AD7C5296E1D650092FFFB /* DisplayTaskListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskListPage.swift; sourceTree = "<group>"; };
 		2F9AD7C9296E21080092FFFB /* AddTaskPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPage.swift; sourceTree = "<group>"; };
 		2F9C135A29AF992E0070413E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		2FB4A98E2B806AA80021C87F /* DateFormatOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatOption.swift; sourceTree = "<group>"; };
 		2FBE622B2B35E82400729B48 /* Taskmaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Taskmaster.entitlements; sourceTree = "<group>"; };
 		2FBE622F2B35E93100729B48 /* SwiftData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftData.framework; path = System/Library/Frameworks/SwiftData.framework; sourceTree = SDKROOT; };
 		2FBE62312B35E93B00729B48 /* SwiftData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftData.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.2.sdk/System/Library/Frameworks/SwiftData.framework; sourceTree = DEVELOPER_DIR; };
-		2FC3F9CD29AF0FAC0078DFC4 /* ThemeEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEnums.swift; sourceTree = "<group>"; };
+		2FC3F9CD29AF0FAC0078DFC4 /* ThemeOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeOptions.swift; sourceTree = "<group>"; };
 		2FD1CC622A81323200B29F6D /* QuickAddTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddTaskButton.swift; sourceTree = "<group>"; };
-		2FD1CC642A813D1B00B29F6D /* ListEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEnums.swift; sourceTree = "<group>"; };
+		2FD1CC642A813D1B00B29F6D /* ListStyleOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStyleOptions.swift; sourceTree = "<group>"; };
 		2FD1CC662A814E1D00B29F6D /* StringUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtilities.swift; sourceTree = "<group>"; };
 		2FD24C6F2A81BD68009FF6F4 /* HapticOnTapViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticOnTapViewModifier.swift; sourceTree = "<group>"; };
 		2FD24C712A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactOnTapViewModifier.swift; sourceTree = "<group>"; };
-		2FF5C0702A8059810059F348 /* IndicatorEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorEnums.swift; sourceTree = "<group>"; };
+		2FF5C0702A8059810059F348 /* CompletionIndicatorOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionIndicatorOptions.swift; sourceTree = "<group>"; };
 		2FF5C0732A805AFA0059F348 /* TaskCompletionIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCompletionIndicator.swift; sourceTree = "<group>"; };
 		2FFAEAF92A885D80002D93E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -330,9 +332,10 @@
 		2FF5C0752A806B7C0059F348 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				2FC3F9CD29AF0FAC0078DFC4 /* ThemeEnums.swift */,
-				2FF5C0702A8059810059F348 /* IndicatorEnums.swift */,
-				2FD1CC642A813D1B00B29F6D /* ListEnums.swift */,
+				2FC3F9CD29AF0FAC0078DFC4 /* ThemeOptions.swift */,
+				2FF5C0702A8059810059F348 /* CompletionIndicatorOptions.swift */,
+				2FD1CC642A813D1B00B29F6D /* ListStyleOptions.swift */,
+				2FB4A98E2B806AA80021C87F /* DateFormatOption.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -471,9 +474,10 @@
 				2F6BD24C2A87F4650075ACFF /* TaskViewModel.swift in Sources */,
 				2F1EC9FA2A7EADB3006B5FC0 /* DisplayTaskItemPage.swift in Sources */,
 				2F6BD24E2A880BFF0075ACFF /* String.swift in Sources */,
-				2FC3F9CE29AF0FAC0078DFC4 /* ThemeEnums.swift in Sources */,
+				2FC3F9CE29AF0FAC0078DFC4 /* ThemeOptions.swift in Sources */,
 				2F6BD24A2A87EC9F0075ACFF /* TaskItem.swift in Sources */,
 				2FD24C702A81BD68009FF6F4 /* HapticOnTapViewModifier.swift in Sources */,
+				2FB4A98F2B806AA80021C87F /* DateFormatOption.swift in Sources */,
 				2F89C3CA2972A8C20053DB22 /* EditTaskPage.swift in Sources */,
 				2FF5C0742A805AFA0059F348 /* TaskCompletionIndicator.swift in Sources */,
 				2F9C135B29AF992E0070413E /* Color.swift in Sources */,
@@ -483,11 +487,11 @@
 				2FD1CC672A814E1D00B29F6D /* StringUtilities.swift in Sources */,
 				2F9AD7B3296E1C510092FFFB /* TaskmasterApp.swift in Sources */,
 				2F9AD7CA296E21080092FFFB /* AddTaskPage.swift in Sources */,
-				2FF5C0712A8059810059F348 /* IndicatorEnums.swift in Sources */,
+				2FF5C0712A8059810059F348 /* CompletionIndicatorOptions.swift in Sources */,
 				2F9AD7C6296E1D650092FFFB /* DisplayTaskListPage.swift in Sources */,
 				2F67EC8829ADBF4D00F6E43E /* SettingsStore.swift in Sources */,
 				2F3E34EF2A84FDFD00DF2C15 /* TextFieldViewModifier.swift in Sources */,
-				2FD1CC652A813D1B00B29F6D /* ListEnums.swift in Sources */,
+				2FD1CC652A813D1B00B29F6D /* ListStyleOptions.swift in Sources */,
 				2F1EC9FD2A7EADF4006B5FC0 /* MockupUtilities.swift in Sources */,
 				2F7A3AE92A86AFEA00B02C11 /* HapticGenerator.swift in Sources */,
 				2FD24C722A81BF16009FF6F4 /* ImpactOnTapViewModifier.swift in Sources */,

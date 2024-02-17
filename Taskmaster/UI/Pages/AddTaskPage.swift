@@ -203,18 +203,28 @@ extension AddTaskPage {
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
                         HStack {
-                            Button(action: {
-                                inputText = ""
-                            }) {
+                            // Leading Keyboard Toolbar Items
+                            Button(action: onButtonClearPress) {
                                 Image(systemName: "eraser")
                             }
                             .disabled(inputText.isEmpty)
+                        
+                            Button(action: onButtonSavePress) {
+                                Image(systemName: "checkmark")
+                            }
+                            .disabled(!isTextPreparedForSubmission)
                             
+                            // Trailing Keyboard Toolbar Items
                             Spacer()
                             Button(action: {
                                 isInputFocused.toggle()
                             }) {
                                 Image(systemName: "keyboard.chevron.compact.down")
+                            }
+                            Button(action: {
+                                dismiss()
+                            }) {
+                                Image(systemName: "xmark")
                             }
                         }
                         .tint(Color.gray)
@@ -223,48 +233,48 @@ extension AddTaskPage {
         }
     }
     
-    private var buttonClear: some View {
-        func onPress() {
-            func feedbackShake() {
-                haptics.notification(.warning)
-                btnClearAnimated = 1
-            }
-            
-            func feedbackSuccess() {
-                btnClearAnimated = 2
-            }
-            
-            func resetButtonEffects() {
-                btnClearAnimated = 0
-                btnSaveAnimated  = 0
-            }
-            
-            // Capture future btn result, which is an inversion of if the str is empty
-            let success = !inputText.isEmpty
-            
-            guard success else {
-                feedbackShake()
-                return
-            }
-            
-            inputText = ""
-            haptics.notification()
-            flashAlert(
-                text: "Text field cleared",
-                duration: 2.0
-            )
-            feedbackSuccess()
-            
-            // Reset btn attributes w/ animation after 1s
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                resetButtonEffects()
-            }
+    private func onButtonClearPress() {
+        func feedbackShake() {
+            haptics.notification(.warning)
+            btnClearAnimated = 1
         }
         
+        func feedbackSuccess() {
+            btnClearAnimated = 2
+        }
+        
+        func resetButtonEffects() {
+            btnClearAnimated = 0
+            btnSaveAnimated  = 0
+        }
+        
+        // Capture future btn result, which is an inversion of if the str is empty
+        let success = !inputText.isEmpty
+        
+        guard success else {
+            feedbackShake()
+            return
+        }
+        
+        inputText = ""
+        haptics.notification()
+        flashAlert(
+            text: "Text field cleared",
+            duration: 2.0
+        )
+        feedbackSuccess()
+        
+        // Reset btn attributes w/ animation after 1s
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            resetButtonEffects()
+        }
+    }
+    
+    private var buttonClear: some View {
         let symbol  = btnClearAnimated==1 ? "xmark" : "eraser.fill"
         let bgColor = btnClearAnimated==2 ? Color.green : Color.danger
         
-        return Button(action: onPress) {
+        return Button(action: onButtonClearPress) {
             Image(systemName: symbol)
                 .imageScale(.large)
                 .frame(width: 125, height: 30)
@@ -274,40 +284,40 @@ extension AddTaskPage {
         .disabled(inputText.isEmpty)
     }
     
-    private var buttonSave: some View {
-        func onPress() {
-            // If save is clicked, but less than 3 characters are in the text field
-            guard isTextPreparedForSubmission else {
-                let tooShort = "Tasks must be at least 4 characters in length 📏"
-                let tooShort2 = "Task is too short. Please enter at least 4 characters."
-                btnSaveAnimated = 1
-                
-                flashAlert(text: alertVisible ? tooShort2 : tooShort)
-                haptics.notification(.warning)
-                
-                if !isInputFocused {
-                    isInputFocused = true
-                }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    btnSaveAnimated = 0
-                }
-                
-                return
+    private func onButtonSavePress() {
+        // If save is clicked, but less than 3 characters are in the text field
+        guard isTextPreparedForSubmission else {
+            let tooShort = "Tasks must be at least 4 characters in length 📏"
+            let tooShort2 = "Task is too short. Please enter at least 4 characters."
+            btnSaveAnimated = 1
+            
+            flashAlert(text: alertVisible ? tooShort2 : tooShort)
+            haptics.notification(.warning)
+            
+            if !isInputFocused {
+                isInputFocused = true
             }
             
-            // Otherwise, text is ready and the save can proceed
-            
-            if isInputFocused {
-                isInputFocused = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                btnSaveAnimated = 0
             }
             
-            btnSaveAnimated = 2
-            haptics.notification()
-            
-            addAndReturn(after: 0.2)
+            return
         }
         
+        // Otherwise, text is ready and the save can proceed
+        
+        if isInputFocused {
+            isInputFocused = false
+        }
+        
+        btnSaveAnimated = 2
+        haptics.notification()
+        
+        addAndReturn(after: 0.2)
+    }
+    
+    private var buttonSave: some View {
         let bgColor = switch(btnSaveAnimated) {
         case 1:
             Color.danger
@@ -318,7 +328,7 @@ extension AddTaskPage {
         }
         let symbol = btnSaveAnimated==1 ? "xmark" : "checkmark"
         
-        return Button(action: onPress) {
+        return Button(action: onButtonSavePress) {
             Image(systemName: symbol)
                 .imageScale(.large)
                 .frame(width: 125, height: 30)

@@ -1,7 +1,7 @@
 import Foundation
 
 /// Represents various symbols within Apple's SF icon sets which are used as framing in the background of CompletionIndicatorViews.
-enum CompletionIndicatorFrame: String, CaseIterable {
+enum CompletionIndicatorFrameOption: String, CaseIterable {
     case app, circle, diamond, roundsquare, square
     
     func getSymbolName() -> String {
@@ -21,7 +21,7 @@ enum CompletionIndicatorFrame: String, CaseIterable {
 }
 
 /// Represents various symbols within Apple's SF icon sets which are used as the completion marker within the foreground of CompletionIndicatorViews.
-enum CompletionIndicatorSymbol: String, CaseIterable {
+enum CompletionIndicatorSymbolOption: String, CaseIterable {
     case asterisk, checkmark, scribble, xmark
     
     func getSymbolName() -> String {

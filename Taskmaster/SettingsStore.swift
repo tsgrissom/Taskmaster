@@ -16,6 +16,7 @@ final class SettingsStore: ObservableObject {
         static let indicatorChecked = "IndicatorChecked"
         static let indicatorFill = "IndicatorFill"
         static let quickAddButtonStyle = "QuickAddButtonStyle"
+        static let dateFormat = "DateFormat"
         // App Behavior
         static let debugEnabled = "DebugEnabled"
         static let useHaptics = "UseHaptics"
@@ -38,12 +39,13 @@ final class SettingsStore: ObservableObject {
         
         defaults.register(defaults: [
             // Appearance
-            Keys.themeBg: ThemeBackground.system.rawValue,
-            Keys.themeAccent: ThemeAccent.purple.rawValue,
-            Keys.indicatorFrame: CompletionIndicatorFrame.roundsquare.rawValue,
-            Keys.indicatorChecked: CompletionIndicatorSymbol.checkmark.rawValue,
+            Keys.themeBg: ThemeBackgroundOption.system.rawValue,
+            Keys.themeAccent: ThemeAccentOption.purple.rawValue,
+            Keys.indicatorFrame: CompletionIndicatorFrameOption.roundsquare.rawValue,
+            Keys.indicatorChecked: CompletionIndicatorSymbolOption.checkmark.rawValue,
             Keys.indicatorFill: false,
-            Keys.quickAddButtonStyle: QuickAddButtonStyle.small.rawValue,
+            Keys.quickAddButtonStyle: QuickAddButtonStyleOption.small.rawValue,
+            Keys.dateFormat: DateFormatOption.international.rawValue,
             // App Behavior
             Keys.debugEnabled: false,
             Keys.useHaptics: true,
@@ -65,10 +67,10 @@ final class SettingsStore: ObservableObject {
     /**
      Which theme background to use for the app, system, light, or dark.
      */
-    var themeBg: ThemeBackground {
+    var themeBg: ThemeBackgroundOption {
         get {
             defaults.string(forKey: Keys.themeBg).flatMap {
-                ThemeBackground(rawValue: $0)
+                ThemeBackgroundOption(rawValue: $0)
             } ?? .system
         }
         
@@ -80,10 +82,10 @@ final class SettingsStore: ObservableObject {
     /**
      Which theme accent color to use for the app.
      */
-    var themeAccent: ThemeAccent {
+    var themeAccent: ThemeAccentOption {
         get {
             defaults.string(forKey: Keys.themeAccent).flatMap {
-                ThemeAccent(rawValue: $0)
+                ThemeAccentOption(rawValue: $0)
             } ?? .purple
         }
         
@@ -96,10 +98,10 @@ final class SettingsStore: ObservableObject {
      Which SF symbol name to use for the background layer of the task indicator.
      If the fill option is enabled, ".fill" will be appended to the end of the name when it is used.
      */
-    var indicatorFrame: CompletionIndicatorFrame {
+    var indicatorFrame: CompletionIndicatorFrameOption {
         get {
             defaults.string(forKey: Keys.indicatorFrame).flatMap {
-                CompletionIndicatorFrame(rawValue: $0)
+                CompletionIndicatorFrameOption(rawValue: $0)
             } ?? .roundsquare
         }
         
@@ -113,15 +115,27 @@ final class SettingsStore: ObservableObject {
      corresponding task is completed. This symbol will be overlayed on top of and inside
      of the frame.
      */
-    var indicatorSymbol: CompletionIndicatorSymbol {
+    var indicatorSymbol: CompletionIndicatorSymbolOption {
         get {
             defaults.string(forKey: Keys.indicatorChecked).flatMap {
-                CompletionIndicatorSymbol(rawValue: $0)
+                CompletionIndicatorSymbolOption(rawValue: $0)
             } ?? .checkmark
         }
         
         set {
             defaults.set(newValue.rawValue, forKey: Keys.indicatorChecked)
+        }
+    }
+    
+    var dateFormat: DateFormatOption {
+        get {
+            defaults.string(forKey: Keys.dateFormat).flatMap {
+                DateFormatOption(rawValue: $0)
+            } ?? .international
+        }
+        
+        set {
+            defaults.set(newValue.rawValue, forKey: Keys.dateFormat)
         }
     }
     
@@ -138,10 +152,10 @@ final class SettingsStore: ObservableObject {
      Which style of quick add button should be used in the `ListView` in order to add a
      new task.
      */
-    var quickAddButtonStyle: QuickAddButtonStyle {
+    var quickAddButtonStyle: QuickAddButtonStyleOption {
         get {
             defaults.string(forKey: Keys.quickAddButtonStyle).flatMap {
-                QuickAddButtonStyle(rawValue: $0)
+                QuickAddButtonStyleOption(rawValue: $0)
             } ?? .small
         }
         

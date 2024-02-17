@@ -7,8 +7,9 @@ private struct CustomButtonStyle: ButtonStyle {
     let activeColor: Color
     let defaultColor: Color
     let frameSize: CGFloat
-
-    @Binding var isPressed: Bool
+    
+    @Binding
+    var isPressed: Bool
     
     func makeBody(configuration: Configuration) -> some View {
         NavigationLink(destination: AddTaskPage()) {
